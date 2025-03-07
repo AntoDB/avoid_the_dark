@@ -1,2 +1,2 @@
-# game_jam_2025
+# Avoid the dark
 Game during Brussels Game Jam 2025
