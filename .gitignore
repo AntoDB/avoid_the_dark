@@ -46,3 +46,5 @@ sysinfo.txt
 # Autobackup files
 *.blend[0-9]
 *.blend[0-9].meta
+/Logs
+PhysicalIntegration/ESP32-1/credentials.h
