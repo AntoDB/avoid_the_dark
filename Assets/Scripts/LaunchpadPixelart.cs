@@ -135,9 +135,17 @@ public class LaunchpadPixelArt : MonoBehaviour
     {
         if (!deviceConnected || _launchpadOut == null) return;
 
+        // Éteindre la grille principale 8x8
         foreach (var kvp in padNotes)
         {
             _launchpadOut.SendNoteOn(0, kvp.Value, 0); // 0 = OFF (éteint)
+        }
+
+        // Éteindre aussi les boutons de contrôle sur la droite
+        int[] rightButtons = new int[] { 89, 79, 69, 59, 49, 39, 29, 19 };
+        foreach (int note in rightButtons)
+        {
+            _launchpadOut.SendNoteOn(0, note, 0);
         }
     }
 
@@ -164,11 +172,46 @@ public class LaunchpadPixelArt : MonoBehaviour
         // Afficher l'image sélectionnée
         int[,] imageData = GetImageData(selectedImage);
 
+        // Afficher l'image principale sur la grille 8x8
         for (int y = 0; y < 8; y++)
         {
             for (int x = 0; x < 8; x++)
             {
                 SetPixel(x, y, imageData[x, y]);
+            }
+        }
+
+        // Afficher la palette de couleurs sur les boutons de droite
+        DisplayColorPalette();
+    }
+
+    // Afficher la palette de couleurs sur les boutons de droite
+    private void DisplayColorPalette()
+    {
+        // Ces notes MIDI correspondent aux boutons de droite (Volume, Pan, Send A, Send B, Stop, Mute, Solo, Record Arm)
+        // Sur le Launchpad MK2, ces boutons ont les notes MIDI: 89, 79, 69, 59, 49, 39, 29, 19
+        int[] rightButtons = new int[] { 89, 79, 69, 59, 49, 39, 29, 19 };
+
+        if (selectedImage == PixelArtImage.Alien)
+        {
+            // Couleurs pour l'Alien: Off, Blanc, Vert lime clair, Vert lime vif, Vert lumineux, Vert foncé, Vert-bleu
+            int[] alienColors = new int[] { 0, 3, 16, 17, 25, 29, 37 };
+
+            // Afficher chaque couleur (on a 6 couleurs + le noir)
+            for (int i = 0; i < alienColors.Length && i < rightButtons.Length; i++)
+            {
+                _launchpadOut.SendNoteOn(0, rightButtons[i], alienColors[i]);
+            }
+        }
+        else if (selectedImage == PixelArtImage.Ghost)
+        {
+            // Couleurs pour le Ghost: Off, Blanc, Cyan, Bleu clair, Bleu
+            int[] ghostColors = new int[] { 0, 3, 36, 41, 45 };
+
+            // Afficher chaque couleur (on a 4 couleurs + le noir)
+            for (int i = 0; i < ghostColors.Length && i < rightButtons.Length; i++)
+            {
+                _launchpadOut.SendNoteOn(0, rightButtons[i], ghostColors[i]);
             }
         }
     }
