@@ -46,5 +46,9 @@ sysinfo.txt
 # Autobackup files
 *.blend[0-9]
 *.blend[0-9].meta
+
+# Custom ingoring folders and files
 /Logs
 PhysicalIntegration/ESP32-1/credentials.h
+Assets/Scripts/MqttCredentials.cs
+Assets/Scripts/MqttCredentials.cs.meta
