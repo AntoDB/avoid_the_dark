@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\GameManager\\ArcadeGameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\Tanuki.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Camera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Camera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T08:15:26.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T22:10:08.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ArcadeGameManager.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\GameManager\\ArcadeGameManager.cs",
+              "RelativeDocumentMoniker": "..\\rr_frontend\\Assets\\Scripts\\GameManager\\ArcadeGameManager.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\GameManager\\ArcadeGameManager.cs",
+              "RelativeToolTip": "..\\rr_frontend\\Assets\\Scripts\\GameManager\\ArcadeGameManager.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T22:00:56.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Tanuki.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\Tanuki.cs",
+              "RelativeDocumentMoniker": "..\\rr_frontend\\Assets\\Scripts\\Tanuki.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\rr_frontend\\Assets\\Scripts\\Tanuki.cs",
+              "RelativeToolTip": "..\\rr_frontend\\Assets\\Scripts\\Tanuki.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T22:00:14.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Character.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Character.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Character.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAUwC8AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T21:49:42.759Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
