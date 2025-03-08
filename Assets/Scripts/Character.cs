@@ -37,9 +37,23 @@ public class PlayerMovement : MonoBehaviour
         // Calcul du vecteur de mouvement
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         Speed = movement.magnitude;
-        Debug.Log(Speed);
+
+        // Rotation du personnage dans la direction du mouvement
+        if (movement != Vector3.zero)
+        {
+            // Calcul de la rotation souhaitée
+            Quaternion targetRotation = Quaternion.LookRotation(movement);
+
+            // Option 1: Rotation instantanée
+            //transform.rotation = targetRotation;
+
+            // Option 2: Rotation progressive (plus fluide)
+            float rotationSpeed = 10f; // Ajustez cette valeur selon vos préférences
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
         // Application du mouvement
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
 
     public void jump()
