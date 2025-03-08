@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{69d45a21-0eaa-4165-a31c-f63a8d63eca1}">
 		<property name="name">
-			<value>player_foostteps</value>
+			<value>player_footsteps</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -62,7 +62,20 @@
 			<destination>{97f79b2a-253d-4c21-999f-e2f9eb582d22}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{29bbf887-d251-4d45-9ce1-dfc35623188d}" />
+	<object class="EventAutomatableProperties" id="{29bbf887-d251-4d45-9ce1-dfc35623188d}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+		<property name="maxVoices">
+			<value>20</value>
+		</property>
+		<property name="dopplerEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>20</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{0f28795d-209a-4047-90d7-77248ce6490c}" />
 	<object class="GroupTrack" id="{bf2b5a55-0a39-4bf0-b725-7c8e360869b1}">
 		<relationship name="mixerGroup">
@@ -119,6 +132,7 @@
 		<relationship name="effects">
 			<destination>{6c6142e0-2759-4056-a35f-e42dd8a7423f}</destination>
 			<destination>{151cbbea-ad7c-49dc-98b6-c0f8b6bb6a75}</destination>
+			<destination>{131dfb5f-3639-469b-bf9e-56cc7f2b3dd8}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{38ab69c6-b527-4187-872e-8555a3072172}" />
@@ -141,6 +155,14 @@
 	<object class="MixerBusPanner" id="{0b5a50c3-f437-498a-b98a-839488f19749}" />
 	<object class="MixerBusFader" id="{6c6142e0-2759-4056-a35f-e42dd8a7423f}" />
 	<object class="SpatialiserEffect" id="{151cbbea-ad7c-49dc-98b6-c0f8b6bb6a75}" />
+	<object class="ThreeEQEffect" id="{131dfb5f-3639-469b-bf9e-56cc7f2b3dd8}">
+		<property name="lowGain">
+			<value>-2.5</value>
+		</property>
+		<property name="midGain">
+			<value>-23</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{ef8b5179-f51a-4848-a56a-5fb5e07027ed}">
 		<relationship name="audioFile">
 			<destination>{68985237-4289-4429-aaa4-9af7b172b168}</destination>
