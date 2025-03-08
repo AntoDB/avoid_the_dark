@@ -5,7 +5,7 @@ public class TriggerCamera : MonoBehaviour
     public bool followXAxis;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Player"))
+        if (other.CompareTag("Player"))
         {
             Camera.main.GetComponent<CameraFollowWithAxisLock>().followXAxis = followXAxis;
         }

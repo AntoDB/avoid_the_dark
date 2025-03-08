@@ -139,7 +139,8 @@ MonoBehaviour:
   intensity: 11.45
   lightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   range: 10
-  angle: 90
+  angle: 50
+  side: 3.2
   isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2

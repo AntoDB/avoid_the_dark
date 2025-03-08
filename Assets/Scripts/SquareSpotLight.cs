@@ -9,6 +9,9 @@ public class SquareSpotLight : MonoBehaviour
     public Color lightColor = Color.white;
     public float range = 10f;
     public float angle = 30f;
+    public float side = 5f;
+
+    private bool playerIsInside = false;
 
     [Header("Paramètres de clignotement")]
     [Tooltip("Active la lumière clignotante")]
@@ -30,6 +33,7 @@ public class SquareSpotLight : MonoBehaviour
     void Start()
     {
         SetupSquareSpotLight();
+        CreateSquareCollider();
         if (isFlickering)
             StartCoroutine(FlickerRoutine());
     }
@@ -56,7 +60,7 @@ public class SquareSpotLight : MonoBehaviour
         // Si aucune texture cookie n'est fournie, créer une texture carrée
         if (cookieTexture == null)
         {
-            cookieTexture = CreateSquareCookie(256);
+            cookieTexture = CreateSquareCookie(64);
         }
 
         // Appliquer la texture cookie
@@ -101,14 +105,12 @@ public class SquareSpotLight : MonoBehaviour
         return texture;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void CreateSquareCollider()
     {
-        Debug.Log("Enter Trigger");
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Exit Trigger");
+        BoxCollider collider = gameObject.AddComponent<BoxCollider>();
+        collider.isTrigger = true;
+        collider.size = new Vector3(side, side, spotLight.range);
+        collider.center = new Vector3(0, 0, spotLight.range / 2);
     }
 
     private IEnumerator FlickerRoutine()
