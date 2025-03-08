@@ -24,6 +24,14 @@ public class LaunchpadPixelArt : MonoBehaviour
     [Header("Configuration")]
     public PixelArtImage selectedImage = PixelArtImage.Alien;
 
+    // Variable entière pour contrôler l'affichage
+    [Header("Contrôle d'Affichage")]
+    [Tooltip("0 = Éteint, 1 = Alien, 2 = Ghost")]
+    [Range(0, 2)]
+    public int displayMode = 0;
+
+    private int previousDisplayMode = -1; // Pour détecter les changements
+
     void Start()
     {
         // Initialiser le mapping des touches
@@ -32,11 +40,9 @@ public class LaunchpadPixelArt : MonoBehaviour
         // Initialiser la connexion MIDI
         InitializeMIDI();
 
-        // Afficher l'image sélectionnée
-        if (deviceConnected)
-        {
-            DisplaySelectedImage();
-        }
+        // Initialiser le mode d'affichage
+        previousDisplayMode = displayMode;
+        UpdateDisplay();
     }
 
     void Update()
@@ -50,8 +56,15 @@ public class LaunchpadPixelArt : MonoBehaviour
             // Réafficher l'image si on est reconnecté
             if (deviceConnected)
             {
-                DisplaySelectedImage();
+                UpdateDisplay();
             }
+        }
+
+        // Vérifier si le mode d'affichage a changé
+        if (displayMode != previousDisplayMode)
+        {
+            previousDisplayMode = displayMode;
+            UpdateDisplay();
         }
     }
 
@@ -158,6 +171,31 @@ public class LaunchpadPixelArt : MonoBehaviour
         if (padNotes.ContainsKey(pos))
         {
             _launchpadOut.SendNoteOn(0, padNotes[pos], color);
+        }
+    }
+
+    // Mettre à jour l'affichage selon le mode sélectionné
+    private void UpdateDisplay()
+    {
+        if (!deviceConnected || _launchpadOut == null) return;
+
+        // D'abord, tout effacer
+        ClearGrid();
+
+        // Ensuite afficher selon le mode
+        switch (displayMode)
+        {
+            case 0: // Éteint
+                // Ne rien faire, tout est déjà éteint
+                break;
+            case 1: // Alien
+                selectedImage = PixelArtImage.Alien;
+                DisplaySelectedImage();
+                break;
+            case 2: // Ghost
+                selectedImage = PixelArtImage.Ghost;
+                DisplaySelectedImage();
+                break;
         }
     }
 
@@ -350,5 +388,38 @@ public class LaunchpadPixelArt : MonoBehaviour
         ghost[5, 7] = 45; // Bleu
 
         return ghost;
+    }
+
+    // Gestion publique de l'affichage
+    public void SetDisplayMode(int mode)
+    {
+        if (mode >= 0 && mode <= 2)
+        {
+            displayMode = mode;
+            UpdateDisplay();
+        }
+    }
+
+    // Fonctions utilitaires pour faciliter l'intégration
+    public void TurnOff()
+    {
+        SetDisplayMode(0);
+    }
+
+    public void ShowAlien()
+    {
+        SetDisplayMode(1);
+    }
+
+    public void ShowGhost()
+    {
+        SetDisplayMode(2);
+    }
+
+    // Basculer entre les modes
+    public void ToggleNextMode()
+    {
+        displayMode = (displayMode + 1) % 3; // Cycle entre 0, 1, 2
+        UpdateDisplay();
     }
 }
