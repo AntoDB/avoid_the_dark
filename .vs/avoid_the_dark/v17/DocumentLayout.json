@@ -1,9 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\",
+  "WorkspaceRootPath": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|e:\\moments\\2025\\game jam - 7-9 mars\\avoid_the_dark\\assets\\rtmiditest\\midioutport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\rtmiditest\\midioutport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\assets\\scripts\\launchpadmidieg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\launchpadmidieg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SquareSpotLight.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SquareSpotLight.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SquareSpotLight.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAZAAAAAAAAAA==",
+              "Title": "MidiOutPort.cs",
+              "DocumentMoniker": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\RtMidiTest\\MidiOutPort.cs",
+              "RelativeDocumentMoniker": "Assets\\RtMidiTest\\MidiOutPort.cs",
+              "ToolTip": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\RtMidiTest\\MidiOutPort.cs",
+              "RelativeToolTip": "Assets\\RtMidiTest\\MidiOutPort.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T14:32:22.762Z",
+              "WhenOpened": "2025-03-08T16:56:00.365Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LaunchpadMidiEg.cs",
+              "DocumentMoniker": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\Scripts\\LaunchpadMidiEg.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LaunchpadMidiEg.cs",
+              "ToolTip": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\Scripts\\LaunchpadMidiEg.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LaunchpadMidiEg.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:27:57.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SquareSpotLight.cs",
+              "DocumentMoniker": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SquareSpotLight.cs",
+              "ToolTip": "E:\\Moments\\2025\\Game Jam - 7-9 mars\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SquareSpotLight.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T14:32:22.762Z"
             }
           ]
         }
