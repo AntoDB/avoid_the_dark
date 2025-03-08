@@ -571,6 +571,7 @@ public class LaunchpadPixelArt : MonoBehaviour
         return smile;
     }
 
+    // Alien avec différentes nuances de vert
     private LaunchpadColor[,] CreateAlienImage()
     {
         LaunchpadColor[,] alien = new LaunchpadColor[8, 8];
@@ -584,46 +585,51 @@ public class LaunchpadPixelArt : MonoBehaviour
             }
         }
 
-        // Dessiner un alien vert
-        alien[3, 0] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 0] = LaunchpadColor.GREEN_BRIGHT;
+        // Dessiner un alien avec différentes nuances de vert
+        // Antennes
+        alien[3, 0] = (LaunchpadColor)17; // Vert lime vif
+        alien[4, 0] = (LaunchpadColor)17; // Vert lime vif
 
-        alien[2, 1] = LaunchpadColor.GREEN_BRIGHT;
-        alien[3, 1] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 1] = LaunchpadColor.GREEN_BRIGHT;
-        alien[5, 1] = LaunchpadColor.GREEN_BRIGHT;
+        // Tête (partie supérieure)
+        alien[2, 1] = (LaunchpadColor)25; // Vert lumineux
+        alien[3, 1] = (LaunchpadColor)25; // Vert lumineux
+        alien[4, 1] = (LaunchpadColor)25; // Vert lumineux
+        alien[5, 1] = (LaunchpadColor)25; // Vert lumineux
 
-        alien[1, 2] = LaunchpadColor.GREEN_BRIGHT;
-        alien[2, 2] = LaunchpadColor.GREEN_BRIGHT;
-        alien[3, 2] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 2] = LaunchpadColor.GREEN_BRIGHT;
-        alien[5, 2] = LaunchpadColor.GREEN_BRIGHT;
-        alien[6, 2] = LaunchpadColor.GREEN_BRIGHT;
+        // Tête (milieu)
+        alien[1, 2] = (LaunchpadColor)17; // Vert lime vif
+        alien[2, 2] = (LaunchpadColor)16; // Vert clair
+        alien[3, 2] = (LaunchpadColor)16; // Vert clair
+        alien[4, 2] = (LaunchpadColor)16; // Vert clair
+        alien[5, 2] = (LaunchpadColor)16; // Vert clair
+        alien[6, 2] = (LaunchpadColor)17; // Vert lime vif
 
         // Yeux
-        alien[2, 3] = LaunchpadColor.WHITE_BRIGHT;
-        alien[3, 3] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 3] = LaunchpadColor.GREEN_BRIGHT;
-        alien[5, 3] = LaunchpadColor.WHITE_BRIGHT;
+        alien[2, 3] = (LaunchpadColor)3; // Blanc lumineux
+        alien[3, 3] = (LaunchpadColor)29; // Vert foncé
+        alien[4, 3] = (LaunchpadColor)29; // Vert foncé
+        alien[5, 3] = (LaunchpadColor)3; // Blanc lumineux
 
-        alien[2, 4] = LaunchpadColor.GREEN_BRIGHT;
-        alien[3, 4] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 4] = LaunchpadColor.GREEN_BRIGHT;
-        alien[5, 4] = LaunchpadColor.GREEN_BRIGHT;
+        // Corps
+        alien[2, 4] = (LaunchpadColor)37; // Vert-bleu
+        alien[3, 4] = (LaunchpadColor)29; // Vert foncé
+        alien[4, 4] = (LaunchpadColor)29; // Vert foncé
+        alien[5, 4] = (LaunchpadColor)37; // Vert-bleu
 
-        // Antennes
-        alien[1, 5] = LaunchpadColor.GREEN_BRIGHT;
-        alien[3, 5] = LaunchpadColor.GREEN_BRIGHT;
-        alien[4, 5] = LaunchpadColor.GREEN_BRIGHT;
-        alien[6, 5] = LaunchpadColor.GREEN_BRIGHT;
+        // Tentacules
+        alien[1, 5] = (LaunchpadColor)29; // Vert foncé
+        alien[3, 5] = (LaunchpadColor)17; // Vert lime vif
+        alien[4, 5] = (LaunchpadColor)17; // Vert lime vif
+        alien[6, 5] = (LaunchpadColor)29; // Vert foncé
 
-        alien[0, 6] = LaunchpadColor.GREEN_BRIGHT;
-        alien[2, 6] = LaunchpadColor.GREEN_BRIGHT;
-        alien[5, 6] = LaunchpadColor.GREEN_BRIGHT;
-        alien[7, 6] = LaunchpadColor.GREEN_BRIGHT;
+        alien[0, 6] = (LaunchpadColor)16; // Vert clair
+        alien[2, 6] = (LaunchpadColor)29; // Vert foncé
+        alien[5, 6] = (LaunchpadColor)29; // Vert foncé
+        alien[7, 6] = (LaunchpadColor)16; // Vert clair
 
         return alien;
     }
+
 
     private LaunchpadColor[,] CreatePacmanImage()
     {
@@ -731,6 +737,7 @@ public class LaunchpadPixelArt : MonoBehaviour
         return pacman;
     }
 
+    // Fantôme avec différentes nuances de bleu
     private LaunchpadColor[,] CreateGhostImage()
     {
         LaunchpadColor[,] ghost = new LaunchpadColor[8, 8];
@@ -744,48 +751,57 @@ public class LaunchpadPixelArt : MonoBehaviour
             }
         }
 
-        // Dessiner un fantôme bleu clair
-        ghost[2, 1] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 1] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 1] = LaunchpadColor.CYAN_LIGHT;
+        // Dessiner un fantôme avec plusieurs nuances de bleu
+        // Partie supérieure
+        ghost[2, 1] = (LaunchpadColor)41; // Bleu clair
+        ghost[3, 1] = (LaunchpadColor)41; // Bleu clair
+        ghost[4, 1] = (LaunchpadColor)41; // Bleu clair
 
-        ghost[1, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 2] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (partie haute)
+        ghost[1, 2] = (LaunchpadColor)41; // Bleu clair
+        ghost[2, 2] = (LaunchpadColor)36; // Cyan
+        ghost[3, 2] = (LaunchpadColor)36; // Cyan
+        ghost[4, 2] = (LaunchpadColor)36; // Cyan
+        ghost[5, 2] = (LaunchpadColor)41; // Bleu clair
 
-        ghost[1, 3] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 3] = LaunchpadColor.WHITE_BRIGHT;
-        ghost[3, 3] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 3] = LaunchpadColor.WHITE_BRIGHT;
-        ghost[5, 3] = LaunchpadColor.CYAN_LIGHT;
+        // Yeux (contour et intérieur)
+        ghost[1, 3] = (LaunchpadColor)45; // Bleu
+        ghost[2, 3] = (LaunchpadColor)3;  // Blanc lumineux
+        ghost[3, 3] = (LaunchpadColor)36; // Cyan
+        ghost[4, 3] = (LaunchpadColor)3;  // Blanc lumineux
+        ghost[5, 3] = (LaunchpadColor)45; // Bleu
 
-        ghost[1, 4] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 4] = LaunchpadColor.BLUE;
-        ghost[3, 4] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 4] = LaunchpadColor.BLUE;
-        ghost[5, 4] = LaunchpadColor.CYAN_LIGHT;
+        // Yeux (pupilles) et corps
+        ghost[1, 4] = (LaunchpadColor)45; // Bleu
+        ghost[2, 4] = (LaunchpadColor)45; // Bleu
+        ghost[3, 4] = (LaunchpadColor)45; // Bleu
+        ghost[4, 4] = (LaunchpadColor)45; // Bleu
+        ghost[5, 4] = (LaunchpadColor)45; // Bleu
 
-        ghost[1, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 5] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (milieu)
+        ghost[1, 5] = (LaunchpadColor)45; // Bleu
+        ghost[2, 5] = (LaunchpadColor)41; // Bleu clair
+        ghost[3, 5] = (LaunchpadColor)45; // Bleu
+        ghost[4, 5] = (LaunchpadColor)41; // Bleu clair
+        ghost[5, 5] = (LaunchpadColor)45; // Bleu
 
-        ghost[1, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 6] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (bas)
+        ghost[1, 6] = (LaunchpadColor)45; // Bleu
+        ghost[2, 6] = (LaunchpadColor)45; // Bleu
+        ghost[3, 6] = (LaunchpadColor)45; // Bleu
+        ghost[4, 6] = (LaunchpadColor)45; // Bleu
+        ghost[5, 6] = (LaunchpadColor)45; // Bleu
 
-        ghost[1, 7] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 7] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 7] = LaunchpadColor.CYAN_LIGHT;
+        // Tentacules
+        ghost[1, 7] = (LaunchpadColor)45; // Bleu
+        ghost[3, 7] = (LaunchpadColor)45; // Bleu
+        ghost[5, 7] = (LaunchpadColor)45; // Bleu
 
         return ghost;
     }
 
+
+    // Variante pour l'animation du fantôme
     private LaunchpadColor[,] CreateGhostImage2()
     {
         LaunchpadColor[,] ghost = new LaunchpadColor[8, 8];
@@ -799,46 +815,52 @@ public class LaunchpadPixelArt : MonoBehaviour
             }
         }
 
-        // Dessiner un fantôme bleu clair (frame 2)
-        ghost[2, 1] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 1] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 1] = LaunchpadColor.CYAN_LIGHT;
+        // Dessiner un fantôme avec plusieurs nuances de bleu (frame 2)
+        // Partie supérieure
+        ghost[2, 1] = LaunchpadColor.BLUE_LIGHT;
+        ghost[3, 1] = LaunchpadColor.BLUE_LIGHT;
+        ghost[4, 1] = LaunchpadColor.BLUE_LIGHT;
 
-        ghost[1, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 2] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 2] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (partie haute)
+        ghost[1, 2] = LaunchpadColor.BLUE_LIGHT;
+        ghost[2, 2] = LaunchpadColor.CYAN;
+        ghost[3, 2] = LaunchpadColor.CYAN;
+        ghost[4, 2] = LaunchpadColor.CYAN;
+        ghost[5, 2] = LaunchpadColor.BLUE_LIGHT;
 
-        ghost[1, 3] = LaunchpadColor.CYAN_LIGHT;
+        // Yeux (contour et intérieur)
+        ghost[1, 3] = LaunchpadColor.BLUE;
         ghost[2, 3] = LaunchpadColor.WHITE_BRIGHT;
         ghost[3, 3] = LaunchpadColor.CYAN_LIGHT;
         ghost[4, 3] = LaunchpadColor.WHITE_BRIGHT;
-        ghost[5, 3] = LaunchpadColor.CYAN_LIGHT;
+        ghost[5, 3] = LaunchpadColor.BLUE;
 
-        ghost[1, 4] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 4] = LaunchpadColor.BLUE;
-        ghost[3, 4] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 4] = LaunchpadColor.BLUE;
-        ghost[5, 4] = LaunchpadColor.CYAN_LIGHT;
+        // Yeux (pupilles) et corps
+        ghost[1, 4] = LaunchpadColor.BLUE;
+        ghost[2, 4] = LaunchpadColor.BLUE_DARK;
+        ghost[3, 4] = LaunchpadColor.BLUE;
+        ghost[4, 4] = LaunchpadColor.BLUE_DARK;
+        ghost[5, 4] = LaunchpadColor.BLUE;
 
-        ghost[1, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 5] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 5] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (milieu)
+        ghost[1, 5] = LaunchpadColor.BLUE;
+        ghost[2, 5] = LaunchpadColor.BLUE_LIGHT;
+        ghost[3, 5] = LaunchpadColor.BLUE;
+        ghost[4, 5] = LaunchpadColor.BLUE_LIGHT;
+        ghost[5, 5] = LaunchpadColor.BLUE;
 
-        ghost[1, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[3, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 6] = LaunchpadColor.CYAN_LIGHT;
-        ghost[5, 6] = LaunchpadColor.CYAN_LIGHT;
+        // Corps (bas)
+        ghost[1, 6] = LaunchpadColor.BLUE_DARK;
+        ghost[2, 6] = LaunchpadColor.BLUE_DARK;
+        ghost[3, 6] = LaunchpadColor.BLUE_DARK;
+        ghost[4, 6] = LaunchpadColor.BLUE_DARK;
+        ghost[5, 6] = LaunchpadColor.BLUE_DARK;
 
-        // Pieds différents pour l'animation
-        ghost[0, 7] = LaunchpadColor.CYAN_LIGHT;
-        ghost[2, 7] = LaunchpadColor.CYAN_LIGHT;
-        ghost[4, 7] = LaunchpadColor.CYAN_LIGHT;
-        ghost[6, 7] = LaunchpadColor.CYAN_LIGHT;
+        // Tentacules (position différente pour l'animation)
+        ghost[0, 7] = LaunchpadColor.BLUE_DARK;
+        ghost[2, 7] = LaunchpadColor.BLUE_DARK;
+        ghost[4, 7] = LaunchpadColor.BLUE_DARK;
+        ghost[6, 7] = LaunchpadColor.BLUE_DARK;
 
         return ghost;
     }
