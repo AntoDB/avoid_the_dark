@@ -19,25 +19,6 @@ public class LaunchpadSimon : MonoBehaviour
     private Dictionary<int, Vector2> padPositions = new Dictionary<int, Vector2>();
     private Dictionary<Vector2, int> positionToNote = new Dictionary<Vector2, int>();
 
-    // Couleurs Launchpad standard
-    [System.Serializable]
-    public enum LaunchpadColor
-    {
-        OFF = 0,
-        RED_LOW = 1,
-        RED_FULL = 3,
-        AMBER_LOW = 17,
-        AMBER_FULL = 19,
-        YELLOW = 35,
-        GREEN_LOW = 16,
-        GREEN_FULL = 48,
-        BLUE_LOW = 33,
-        BLUE_FULL = 51,
-        PURPLE = 49,
-        PINK = 53,
-        ORANGE = 18
-    }
-
     // Configuration du jeu
     [Header("Configuration du jeu")]
     [SerializeField] private int nbTouchesJeu = 4; // Nombre de touches utilisées pour le jeu
@@ -537,70 +518,6 @@ public class LaunchpadSimon : MonoBehaviour
         StartCoroutine(PasserAuNiveauSuivant());
     }
 
-    // Montrer les touches du jeu une par une
-    IEnumerator MontrerTouchesJeuUneParUne()
-    {
-        // Vérifier si le jeu est toujours activé
-        if (!jeuEnabled)
-        {
-            yield break;
-        }
-
-        // Attendre un moment avant de commencer
-        yield return new WaitForSeconds(0.5f);
-
-        // Vérifier à nouveau si le jeu est toujours activé
-        if (!jeuEnabled)
-        {
-            yield break;
-        }
-
-        // Montrer chaque touche individuellement
-        foreach (int note in touchesJeu)
-        {
-            // Si le jeu a été désactivé entre-temps, arrêter
-            if (!jeuEnabled)
-            {
-                yield break;
-            }
-
-            // Éteindre toutes les touches
-            ResetAllLEDs();
-
-            // Allumer la touche actuelle
-            SendColorToLaunchpad(note, (byte)couleursTouches[note]);
-
-            // Attendre pour que le joueur puisse voir la couleur
-            yield return new WaitForSeconds(0.8f);
-            
-            // Vérifier à nouveau si le jeu est toujours activé
-            if (!jeuEnabled)
-            {
-                yield break;
-            }
-        }
-
-        // Montrer toutes les touches ensemble un court instant
-        ResetAllLEDs();
-        foreach (int note in touchesJeu)
-        {
-            SendColorToLaunchpad(note, (byte)couleursTouches[note]);
-        }
-
-        yield return new WaitForSeconds(1.5f);
-        
-        // Vérifier une dernière fois si le jeu est toujours activé
-        if (!jeuEnabled)
-        {
-            yield break;
-        }
-        
-        ResetAllLEDs();
-
-        // Passer au niveau suivant
-        StartCoroutine(PasserAuNiveauSuivant());
-    }
-
     // Passer au niveau suivant
     IEnumerator PasserAuNiveauSuivant()
     {
@@ -862,30 +779,6 @@ public class LaunchpadSimon : MonoBehaviour
         }
     }
 
-    // Afficher le niveau actuel
-    void AfficherNiveau()
-    {
-        // Si le jeu n'est pas activé, ne rien faire
-        if (!jeuEnabled) return;
-        
-        ResetAllLEDs();
-
-        // Afficher le chiffre du niveau au centre
-        if (niveau < 10)
-        {
-            // Pour les niveaux 1-9, afficher un chiffre simple
-            AfficherChiffre(niveau, 3, 3, (byte)LaunchpadColor.YELLOW);
-        }
-        else
-        {
-            // Pour les niveaux 10+, afficher juste un symbole
-            SetPixel(3, 3, (byte)LaunchpadColor.YELLOW);
-            SetPixel(4, 3, (byte)LaunchpadColor.YELLOW);
-            SetPixel(3, 4, (byte)LaunchpadColor.YELLOW);
-            SetPixel(4, 4, (byte)LaunchpadColor.YELLOW);
-        }
-    }
-
     // Afficher un chiffre (1-9) à une position donnée
     void AfficherChiffre(int chiffre, int x, int y, byte couleur)
     {
@@ -1113,40 +1006,6 @@ public class LaunchpadSimon : MonoBehaviour
         // Retour au menu principal
         jeuActif = false;
         AfficherMenuPrincipal();
-    }
-
-    // Afficher le score final
-    void AfficherScoreFinal()
-    {
-        // Si le jeu n'est pas activé, ne rien faire
-        if (!jeuEnabled) return;
-        
-        ResetAllLEDs();
-
-        // Afficher "SCORE" en haut
-        SetPixel(1, 2, (byte)LaunchpadColor.YELLOW); // S
-        SetPixel(2, 2, (byte)LaunchpadColor.YELLOW); // C
-        SetPixel(3, 2, (byte)LaunchpadColor.YELLOW); // O
-        SetPixel(4, 2, (byte)LaunchpadColor.YELLOW); // R
-        SetPixel(5, 2, (byte)LaunchpadColor.YELLOW); // E
-
-        // Afficher le niveau atteint au centre
-        int score = niveau - 1; // Le niveau où on a échoué
-
-        if (score < 10)
-        {
-            // Afficher un chiffre simple
-            AfficherChiffre(score, 3, 4, (byte)LaunchpadColor.GREEN_FULL);
-        }
-        else
-        {
-            // Pour les scores 10+, afficher les dizaines et les unités
-            int dizaines = score / 10;
-            int unites = score % 10;
-
-            AfficherChiffre(dizaines, 2, 4, (byte)LaunchpadColor.GREEN_FULL);
-            AfficherChiffre(unites, 4, 4, (byte)LaunchpadColor.GREEN_FULL);
-        }
     }
 
     // Mélanger une liste (Fisher-Yates shuffle)
