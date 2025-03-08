@@ -45,20 +45,20 @@ public class LaunchpadSimon : MonoBehaviour
     [SerializeField] private int tempsEntreTouches = 300; // Temps entre l'affichage de deux touches en ms
 
     // Couleurs attribuées au jeu
-    private LaunchpadColor[] couleursJeu = new LaunchpadColor[] {
-        LaunchpadColor.RED_FULL,
-        LaunchpadColor.YELLOW,
-        LaunchpadColor.GREEN_FULL,
-        LaunchpadColor.BLUE_FULL,
-        LaunchpadColor.PURPLE,
-        LaunchpadColor.ORANGE,
-        LaunchpadColor.PINK,
-        LaunchpadColor.AMBER_FULL
+    private int[] couleursJeu = new int[] {
+        5,    // Rouge vif (rangée supérieure)
+        21,   // Jaune vif 
+        52,   // Bleu ciel
+        34,   // Vert vif
+        95,   // Violet/rose
+        9,    // Orange
+        73,   // Vert fluo
+        46    // Bleu
     };
 
     // Variables du jeu
     private List<int> touchesJeu = new List<int>(); // Les touches utilisées pour le jeu
-    private Dictionary<int, LaunchpadColor> couleursTouches = new Dictionary<int, LaunchpadColor>(); // Mapping note -> couleur
+    private Dictionary<int, int> couleursTouches = new Dictionary<int, int>(); // Mapping note -> couleur
     private List<int> sequenceActuelle = new List<int>(); // Séquence actuelle à reproduire
     private int positionReproduction = 0; // Position dans la reproduction de la séquence
     private bool enAttenteSaisie = false; // Si le joueur est en train de saisir la séquence
@@ -72,6 +72,11 @@ public class LaunchpadSimon : MonoBehaviour
 
         // Initialiser la connexion MIDI
         InitializeMIDI();
+
+        // S'assurer que tout est éteint au démarrage
+        Invoke("ResetAllLEDs", 0.2f);
+        Invoke("ResetAllLEDs", 0.5f); // Double reset pour être sûr
+        Invoke("AfficherMenuPrincipal", 1.0f); // Délai plus long avant d'afficher le menu
     }
 
     void Update()
@@ -218,13 +223,14 @@ public class LaunchpadSimon : MonoBehaviour
     {
         if (velocity == 0) return; // Ignorer les NoteOn avec vélocité 0 (équivalent à NoteOff)
 
-        // Si le jeu est inactif, vérifier si c'est le bouton START
+        // Si le jeu est inactif, vérifier si c'est un des boutons START (boutons centraux)
         if (!jeuActif)
         {
             if (padPositions.ContainsKey(note))
             {
                 Vector2 pos = padPositions[note];
-                if (pos.x == 6 && pos.y == 1) // Bouton START (pos 6,1)
+                // Les 4 boutons centraux (3,3), (4,3), (3,4), (4,4)
+                if ((pos.x == 3 || pos.x == 4) && (pos.y == 3 || pos.y == 4))
                 {
                     DemarrerPartie();
                 }
@@ -267,7 +273,7 @@ public class LaunchpadSimon : MonoBehaviour
         // Si le jeu est actif et c'est une touche du jeu, l'éteindre
         if (jeuActif && touchesJeu.Contains(note))
         {
-            SendColorToLaunchpad(note, (byte)LaunchpadColor.OFF);
+            SendColorToLaunchpad(note, 0); // 0 = OFF
         }
     }
 
@@ -296,37 +302,28 @@ public class LaunchpadSimon : MonoBehaviour
     {
         if (!deviceConnected || _launchpadOut == null) return;
 
-        // Éteindre la grille principale 8x8
-        for (int y = 0; y < 8; y++)
+        // Nettoyage agressif pour s'assurer que toutes les LED sont éteintes
+
+        // 1. Éteindre toutes les notes possibles (0-127)
+        for (int note = 0; note < 128; note++)
         {
-            for (int x = 0; x < 8; x++)
-            {
-                if (positionToNote.TryGetValue(new Vector2(x, y), out int note))
-                {
-                    SendColorToLaunchpad(note, (byte)LaunchpadColor.OFF);
-                }
-            }
+            try { _launchpadOut.SendNoteOn(0, (byte)note, 0); } catch { }
         }
 
-        // Éteindre les boutons de contrôle (round buttons)
-        for (int i = 104; i <= 111; i++)
+        // 2. Éteindre tous les messages de contrôle possibles
+        for (int cc = 0; cc < 128; cc++)
         {
-            try
-            {
-                _launchpadOut.SendControlChange(0, (byte)i, 0);
-            }
-            catch (System.Exception) { }
+            try { _launchpadOut.SendControlChange(0, (byte)cc, 0); } catch { }
         }
 
-        // Éteindre les boutons de droite
-        int[] rightButtons = { 19, 29, 39, 49, 59, 69, 79, 89 };
-        foreach (int btn in rightButtons)
+        // 3. Approche spécifique pour le Launchpad
+        for (byte y = 0; y < 9; y++)
         {
-            try
+            for (byte x = 0; x < 9; x++)
             {
-                _launchpadOut.SendNoteOn(0, (byte)btn, 0);
+                byte note = (byte)(16 * y + x);
+                try { _launchpadOut.SendNoteOn(0, note, 0); } catch { }
             }
-            catch (System.Exception) { }
         }
     }
 
@@ -337,43 +334,30 @@ public class LaunchpadSimon : MonoBehaviour
         ResetAllLEDs();
 
         // Attendre un moment pour s'assurer que tout est éteint
-        StartCoroutine(DelayedMenuDisplay());
+        StartCoroutine(AfficherBoutonsStart());
     }
 
-    // Afficher le menu avec un délai
-    IEnumerator DelayedMenuDisplay()
+    // Afficher les boutons de démarrage
+    IEnumerator AfficherBoutonsStart()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
 
-        // Afficher le titre "SIMON" au centre
-        SetPixel(2, 3, (byte)LaunchpadColor.RED_FULL);     // S (rouge)
-        yield return new WaitForSeconds(0.05f);
-
-        SetPixel(3, 3, (byte)LaunchpadColor.YELLOW);       // I (jaune)
-        yield return new WaitForSeconds(0.05f);
-
-        SetPixel(4, 3, (byte)LaunchpadColor.BLUE_FULL);    // M (bleu)
-        yield return new WaitForSeconds(0.05f);
-
-        SetPixel(5, 3, (byte)LaunchpadColor.GREEN_FULL);   // O (vert)
-        yield return new WaitForSeconds(0.05f);
-
-        SetPixel(3, 4, (byte)LaunchpadColor.PURPLE);       // N (violet)
-        yield return new WaitForSeconds(0.2f);
-
-        // Bouton pour démarrer la partie (coin bas droit) 
-        SetPixel(6, 1, (byte)LaunchpadColor.GREEN_FULL);   // START
+        // Allumer les 4 boutons centraux en vert comme boutons START
+        SetPixel(3, 3, 21); // Vert vif
+        SetPixel(4, 3, 21); // Vert vif
+        SetPixel(3, 4, 21); // Vert vif
+        SetPixel(4, 4, 21); // Vert vif
     }
 
     // Afficher un pixel avec une couleur spécifique par sa position x,y
-    void SetPixel(int x, int y, byte color)
+    void SetPixel(int x, int y, int color)
     {
         if (!deviceConnected || _launchpadOut == null) return;
 
         // Convertir la position x,y en numéro de note
         if (positionToNote.TryGetValue(new Vector2(x, y), out int note))
         {
-            SendColorToLaunchpad(note, color);
+            SendColorToLaunchpad(note, (byte)color);
         }
     }
 
@@ -424,7 +408,7 @@ public class LaunchpadSimon : MonoBehaviour
         }
 
         // Mélanger les couleurs
-        List<LaunchpadColor> couleurs = new List<LaunchpadColor>(couleursJeu);
+        List<int> couleurs = new List<int>(couleursJeu);
         ShuffleList(couleurs);
 
         // Attribuer une couleur aléatoire à chaque touche
@@ -433,8 +417,8 @@ public class LaunchpadSimon : MonoBehaviour
             couleursTouches[touchesJeu[i]] = couleurs[i % couleurs.Count];
         }
 
-        // Montrer les touches une par une
-        StartCoroutine(MontrerTouchesJeuUneParUne());
+        // Commencer directement à jouer
+        StartCoroutine(PasserAuNiveauSuivant());
     }
 
     // Montrer les touches du jeu une par une
@@ -476,7 +460,7 @@ public class LaunchpadSimon : MonoBehaviour
         niveau++;
 
         // Attendre un court instant
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         // Ajouter une nouvelle touche aléatoire à la séquence
         if (niveau == 1)
@@ -491,12 +475,7 @@ public class LaunchpadSimon : MonoBehaviour
             sequenceActuelle.Add(touchesJeu[Random.Range(0, touchesJeu.Count)]);
         }
 
-        // Afficher le niveau actuel
-        AfficherNiveau();
-
-        yield return new WaitForSeconds(1.0f);
-
-        // Afficher la séquence
+        // Afficher directement la séquence sans montrer le niveau
         yield return StartCoroutine(AfficherSequence());
 
         // Attendre la reproduction par le joueur
@@ -607,7 +586,7 @@ public class LaunchpadSimon : MonoBehaviour
         ResetAllLEDs();
 
         // Attendre un court instant avant de commencer
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
 
         // Afficher chaque touche de la séquence
         foreach (int note in sequenceActuelle)
@@ -619,10 +598,30 @@ public class LaunchpadSimon : MonoBehaviour
             yield return new WaitForSeconds(tempsAffichage / 1000f);
 
             // Éteindre la touche
-            SendColorToLaunchpad(note, (byte)LaunchpadColor.OFF);
+            SendColorToLaunchpad(note, 0); // 0 = OFF
 
             // Attendre entre les touches
             yield return new WaitForSeconds(tempsEntreTouches / 1000f);
+        }
+
+        // Signal visuel que c'est au tour du joueur
+        for (int i = 0; i < 3; i++)
+        {
+            // Allumer brièvement les 4 coins en vert pour indiquer que c'est au joueur de jouer
+            SetPixel(0, 0, 21); // Vert vif
+            SetPixel(7, 0, 21); // Vert vif
+            SetPixel(0, 7, 21); // Vert vif
+            SetPixel(7, 7, 21); // Vert vif
+
+            yield return new WaitForSeconds(0.08f);
+
+            // Éteindre les coins
+            SetPixel(0, 0, 0); // OFF
+            SetPixel(7, 0, 0); // OFF
+            SetPixel(0, 7, 0); // OFF
+            SetPixel(7, 7, 0); // OFF
+
+            yield return new WaitForSeconds(0.08f);
         }
     }
 
@@ -639,7 +638,7 @@ public class LaunchpadSimon : MonoBehaviour
             {
                 for (int x = 0; x < 8; x++)
                 {
-                    SetPixel(x, y, (byte)LaunchpadColor.RED_FULL);
+                    SetPixel(x, y, 5); // Rouge vif
                 }
             }
 
@@ -648,10 +647,8 @@ public class LaunchpadSimon : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
-        // Afficher le score final (nombre de niveaux réussis)
-        AfficherScoreFinal();
-
-        yield return new WaitForSeconds(3.0f);
+        // Petit délai avant de revenir au menu principal
+        yield return new WaitForSeconds(0.5f);
 
         // Retour au menu principal
         jeuActif = false;
