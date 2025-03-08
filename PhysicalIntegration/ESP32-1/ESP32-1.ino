@@ -6,6 +6,16 @@
 const char* mqtt_client_id = "ESP32-1";    // ID client unique
 const char* mqtt_topic = "ESP32-1";        // Topic sur lequel publier
 
+// Configuration des boutons
+const int bouton1 = 12;  // Bouton 1 sur GPIO 12
+const int bouton2 = 14;  // Bouton 2 sur GPIO 14
+
+// Variables pour la détection de front montant
+int etatBouton1 = LOW;
+int etatPrecedentBouton1 = LOW;
+int etatBouton2 = LOW;
+int etatPrecedentBouton2 = LOW;
+
 // Variables
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -63,6 +73,11 @@ void reconnect() {
 
 void setup() {
   Serial.begin(115200);
+  
+  // Configuration des broches des boutons en entrée
+  pinMode(bouton1, INPUT);
+  pinMode(bouton2, INPUT);
+  
   setup_wifi();
   client.setServer(mqtt_server, mqtt_port);
   // client.setCallback(callback);  // Décommentez si vous voulez recevoir des messages
@@ -85,6 +100,15 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 */
 
+// Fonction pour publier un message sur le topic MQTT
+void publierMessage(const char* message) {
+  Serial.print("Publication du message: ");
+  Serial.println(message);
+  
+  // Publier sur le topic ESP32-1
+  client.publish(mqtt_topic, message);
+}
+
 void loop() {
   // Vérifier la connexion MQTT
   if (!client.connected()) {
@@ -92,22 +116,26 @@ void loop() {
   }
   client.loop();
 
-  // Publier une valeur toutes les 2 secondes
-  unsigned long now = millis();
-  if (now - lastMsg > 2000) {
-    lastMsg = now;
-    
-    // Incrémenter la valeur
-    value++;
-    
-    // Convertir la valeur en chaîne de caractères
-    char msg[10];
-    snprintf(msg, 10, "%d", value);
-    
-    Serial.print("Publication du message: ");
-    Serial.println(msg);
-    
-    // Publier sur le topic ESP32-1
-    client.publish(mqtt_topic, msg);
+  // Lire l'état actuel des boutons
+  etatBouton1 = digitalRead(bouton1);
+  etatBouton2 = digitalRead(bouton2);
+
+  // Détecter le front montant pour le bouton 1
+  if (etatBouton1 == HIGH && etatPrecedentBouton1 == LOW) {
+    publierMessage("1");  // Envoyer "1" quand le bouton 1 est pressé
+    delay(50);  // Petit délai pour éviter les rebonds
   }
+  
+  // Détecter le front montant pour le bouton 2
+  if (etatBouton2 == HIGH && etatPrecedentBouton2 == LOW) {
+    publierMessage("2");  // Envoyer "2" quand le bouton 2 est pressé
+    delay(50);  // Petit délai pour éviter les rebonds
+  }
+
+  // Sauvegarder l'état précédent des boutons
+  etatPrecedentBouton1 = etatBouton1;
+  etatPrecedentBouton2 = etatBouton2;
+
+  // Délai court pour stabiliser la lecture des boutons
+  delay(10);
 }
