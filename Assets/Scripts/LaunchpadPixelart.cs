@@ -181,7 +181,8 @@ public class LaunchpadPixelArt : MonoBehaviour
             for (int x = 0; x < 8; x++)
             {
                 // Calculer la note MIDI (format standard du Launchpad MK2)
-                int noteNumber = 11 + x + (y * 10);
+                // En utilisant (7-y) au lieu de y, nous inversons l'axe Y
+                int noteNumber = 11 + x + ((7 - y) * 10);
                 padNotes[new Vector2Int(x, y)] = noteNumber;
             }
         }
