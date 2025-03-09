@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
     private bool isGrounded;
+    private bool isBlocked = true;
 
     private int nbInSpot = 0;
 
@@ -51,22 +52,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void movementAxis(float horizontalInput, float verticalInput)
     {
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
-        Speed = movement.magnitude;
-
-        if (movement != Vector3.zero)
+        if (!isBlocked)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
-            float rotationSpeed = 10f; 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
+            Speed = movement.magnitude;
 
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+            if (movement != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(movement);
+                float rotationSpeed = 10f;
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+
+            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        }
     }
 
     public void jump()
     {
-        if (isGrounded)
+        if (isGrounded && !isBlocked)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -89,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
                 MentalHealth -= 0.01f;
         }
         changeAnimationMood(localMood);
+    }
+
+    public void DisableBlockGame()
+    {
+        isBlocked = false;
+        animator.SetTrigger("Replay");
     }
 
     private void changeAnimationMood(Mood localMood)
