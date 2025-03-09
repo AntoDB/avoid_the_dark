@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerfloorislava.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -54,8 +54,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Monster.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T10:52:17.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T10:52:17.635Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TriggerFloorIsLava.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T10:42:10.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T10:42:10.866Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Mood.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T21:36:35.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-08T21:36:35.23Z"
             },
             {
               "$type": "Document",
@@ -115,7 +112,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Character.cs",
               "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
               "RelativeToolTip": "Assets\\Scripts\\Character.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAYwGgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAAwGwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T16:46:17.804Z",
               "EditorCaption": ""
@@ -130,8 +127,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:39:32.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-08T16:39:32.959Z"
             },
             {
               "$type": "Document",

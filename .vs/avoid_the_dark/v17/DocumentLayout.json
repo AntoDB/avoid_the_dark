@@ -7,6 +7,26 @@
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\triggercamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggercamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\camerafollowwithaxislock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camerafollowwithaxislock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,18 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\triggerfloorislava.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerfloorislava.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +50,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CameraFollowWithAxisLock.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\CameraFollowWithAxisLock.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollowWithAxisLock.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\CameraFollowWithAxisLock.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraFollowWithAxisLock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T13:51:47.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TriggerCamera.cs",
+              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerCamera.cs",
+              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TriggerCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T13:41:22.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Monster.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Monster.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Monster.cs",
@@ -58,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "TriggerFloorIsLava.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerFloorIsLava.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerFloorIsLava.cs",
@@ -70,27 +104,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Dialogue3DText.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Dialogue3DText.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Dialogue3DText.cs",
               "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Dialogue3DText.cs",
               "RelativeToolTip": "Assets\\Scripts\\Dialogue3DText.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAIwDoBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACcBAAAAAAAAAAAkwDwBAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:36:20.742Z"
+              "WhenOpened": "2025-03-09T00:36:20.742Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "TriggerDialogue.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerDialogue.cs",
               "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
               "RelativeToolTip": "Assets\\Scripts\\TriggerDialogue.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB4AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBoAAACaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T22:13:51.733Z"
+              "WhenOpened": "2025-03-08T22:13:51.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -102,7 +138,8 @@
               "RelativeToolTip": "Assets\\Scripts\\Mood.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T21:36:35.23Z"
+              "WhenOpened": "2025-03-08T21:36:35.23Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -112,14 +149,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Character.cs",
               "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
               "RelativeToolTip": "Assets\\Scripts\\Character.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAwGwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAwGUAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T16:46:17.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
@@ -131,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "SquareSpotLight.cs",
               "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SquareSpotLight.cs",
