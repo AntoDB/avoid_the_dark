@@ -11,8 +11,6 @@ public class SquareSpotLight : MonoBehaviour
     public float angle = 30f;
     public float side = 5f;
 
-    private bool playerIsInside = false;
-
     [Header("Paramètres de clignotement")]
     [Tooltip("Active la lumière clignotante")]
     public bool isFlickering;
