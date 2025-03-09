@@ -1157,7 +1157,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -4678,7 +4678,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -4986,7 +4986,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -5138,7 +5138,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
@@ -5740,7 +5740,7 @@ MonoBehaviour:
   range: 10
   angle: 110
   side: 7.2
-  isFlickering: 1
+  isFlickering: 0
   minOnTime: 0.1
   maxOnTime: 2
   minOffTime: 0.05
