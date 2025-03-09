@@ -8,7 +8,11 @@ public class TriggerMonsterFollow : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Vector3 pos = other.transform.position;
-            Instantiate(Monster, new Vector3(pos.x, pos.y, pos.z - 3), Quaternion.identity);
+            GameObject go = Instantiate(Monster, new Vector3(pos.x, pos.y, pos.z - 3), Quaternion.identity);
+            go.GetComponent<Animator>().SetBool("Lava", true);
+            go.GetComponent<Monster>().followTarget = true;
+            go.GetComponent<Monster>().targetToFollow = other.transform;
+            Destroy(gameObject);
         }
     }
         

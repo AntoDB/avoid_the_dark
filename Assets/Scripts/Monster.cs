@@ -10,8 +10,17 @@ public class Monster : MonoBehaviour
     [Tooltip("Distance à laquelle le monstre considère qu'il a atteint sa destination")]
     public float stoppingDistance = 0.5f;
 
-    [Tooltip("Point de destination (peut être défini dans l'inspecteur ou via code)")]
+    [Tooltip("Point de destination fixe (ignoré si followTarget est activé)")]
     public Transform targetDestination;
+
+    [Tooltip("Cible à suivre en continu (joueur ou autre objet)")]
+    public Transform targetToFollow;
+
+    [Tooltip("Activer/désactiver le suivi de cible")]
+    public bool followTarget = false;
+
+    [Tooltip("Fréquence de mise à jour du chemin lors du suivi (en secondes)")]
+    public float pathUpdateFrequency = 0.2f;
 
     // Composants
     private NavMeshAgent navMeshAgent;
@@ -19,6 +28,7 @@ public class Monster : MonoBehaviour
 
     // Variables d'état
     private bool hasReachedDestination = false;
+    private float pathUpdateTimer = 0f;
 
     void Start()
     {
@@ -32,8 +42,8 @@ public class Monster : MonoBehaviour
             navMeshAgent.speed = moveSpeed;
             navMeshAgent.stoppingDistance = stoppingDistance;
 
-            // Si une destination est définie dès le départ, le monstre s'y dirige
-            if (targetDestination != null)
+            // Si le suivi n'est pas activé et qu'une destination fixe est définie
+            if (!followTarget && targetDestination != null)
             {
                 SetDestination(targetDestination.position);
             }
@@ -46,30 +56,59 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-        // Vérifier si le monstre a atteint sa destination
-        if (navMeshAgent != null && navMeshAgent.enabled && targetDestination != null)
+        if (navMeshAgent == null || !navMeshAgent.enabled)
+            return;
+
+        // Mode suivi de cible
+        if (followTarget && targetToFollow != null)
+        {
+            // Mise à jour périodique du chemin pour suivre la cible
+            pathUpdateTimer += Time.deltaTime;
+            if (pathUpdateTimer >= pathUpdateFrequency)
+            {
+                pathUpdateTimer = 0f;
+                navMeshAgent.SetDestination(targetToFollow.position);
+            }
+
+            // On considère que la destination est atteinte si on est assez proche
+            if (Vector3.Distance(transform.position, targetToFollow.position) <= stoppingDistance)
+            {
+                if (!hasReachedDestination)
+                {
+                    hasReachedDestination = true;
+                    OnReachTarget();
+                }
+            }
+            else
+            {
+                hasReachedDestination = false;
+            }
+        }
+        // Mode destination fixe
+        else if (targetDestination != null)
         {
             if (!hasReachedDestination && navMeshAgent.remainingDistance <= stoppingDistance)
             {
                 OnReachDestination();
             }
+        }
 
-            // Animation de déplacement (si un Animator est présent)
-            if (animator != null)
-            {
-                animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-            }
+        // Animation de déplacement (si un Animator est présent)
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
     }
 
     /// <summary>
-    /// Définit une nouvelle destination pour le monstre
+    /// Définit une nouvelle destination fixe pour le monstre
     /// </summary>
     /// <param name="destination">Position de destination</param>
     public void SetDestination(Vector3 destination)
     {
         if (navMeshAgent != null && navMeshAgent.enabled)
         {
+            followTarget = false; // Désactive le mode suivi
             hasReachedDestination = false;
             navMeshAgent.SetDestination(destination);
 
@@ -82,7 +121,26 @@ public class Monster : MonoBehaviour
     }
 
     /// <summary>
-    /// Appelé lorsque le monstre atteint sa destination
+    /// Active ou désactive le suivi de cible
+    /// </summary>
+    /// <param name="target">Cible à suivre (null pour désactiver)</param>
+    /// <param name="follow">Activer/désactiver le suivi</param>
+    public void SetTargetFollow(Transform target, bool follow)
+    {
+        targetToFollow = target;
+        followTarget = follow && (target != null);
+
+        // Réinitialisation du timer pour mise à jour immédiate
+        pathUpdateTimer = pathUpdateFrequency;
+
+        if (followTarget && animator != null)
+        {
+            animator.SetTrigger("StartMoving");
+        }
+    }
+
+    /// <summary>
+    /// Appelé lorsque le monstre atteint sa destination fixe
     /// </summary>
     private void OnReachDestination()
     {
@@ -94,8 +152,37 @@ public class Monster : MonoBehaviour
             animator.SetTrigger("ReachedDestination");
         }
 
-        // Vous pouvez ajouter ici d'autres comportements à l'arrivée
-        // comme attendre quelques secondes, choisir une nouvelle destination, etc.
-        Debug.Log("Le monstre a atteint sa destination.");
+        Debug.Log("Le monstre a atteint sa destination fixe.");
+    }
+
+    /// <summary>
+    /// Appelé lorsque le monstre atteint sa cible en mouvement
+    /// </summary>
+    private void OnReachTarget()
+    {
+        // Animation optionnelle d'arrivée à la cible
+        if (animator != null)
+        {
+            animator.SetTrigger("ReachedTarget");
+        }
+
+        Debug.Log("Le monstre a atteint sa cible mobile.");
+
+        // Ici vous pouvez ajouter des comportements comme attaquer le joueur
+        // Par exemple: Attack();
+    }
+
+    /// <summary>
+    /// Exemple de méthode d'attaque (à implémenter selon vos besoins)
+    /// </summary>
+    private void Attack()
+    {
+        // Logique d'attaque
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
+        // Autres effets d'attaque...
     }
 }

@@ -3740,6 +3740,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e051b1bc28067134895627a739893918, type: 2}
+    - target: {fileID: 3558552031251130129, guid: accdfcaa22cf89546ae8dc44e4ddea18, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 31474ee8a6b2d014a9c5903ef08505b1, type: 2}
     - target: {fileID: 4627587262249537631, guid: accdfcaa22cf89546ae8dc44e4ddea18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.35808563
@@ -5283,6 +5287,18 @@ PrefabInstance:
     - target: {fileID: 2110557206834806548, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
       propertyPath: m_Name
       value: Start Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.data[4].Name
+      value: Tension Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.data[0].Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7224,6 +7240,10 @@ PrefabInstance:
     - target: {fileID: 3701066354769009613, guid: 95158a5552664b14ab623498e86c2c30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753332410877910544, guid: 95158a5552664b14ab623498e86c2c30, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6020983447883515837, guid: 95158a5552664b14ab623498e86c2c30, type: 3}
       propertyPath: Monster
