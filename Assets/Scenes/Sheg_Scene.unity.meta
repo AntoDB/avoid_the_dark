@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Sheg_Scene.unity.meta
 guid: e5d09f9122915684ca28bfbbec957753
+========
+guid: 48ad6e1a7a600c94ab7ef5f3426e37b9
+>>>>>>>> origin/Mecanics:Assets/Scenes/SampleScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
