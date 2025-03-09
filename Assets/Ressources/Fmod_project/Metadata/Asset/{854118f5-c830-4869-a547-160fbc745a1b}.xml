@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{854118f5-c830-4869-a547-160fbc745a1b}">
+		<property name="assetPath">
+			<value>Memory Of A Broken Past/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b73b899-1e9a-411e-9439-b3a0b6ebda57}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{28a7037c-b800-426a-ac59-0afe5035bd37}">
+		<property name="assetPath">
+			<value>Memory Of A Broken Past/Memory Vilolon.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>319.16958333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b73b899-1e9a-411e-9439-b3a0b6ebda57}</destination>
+		</relationship>
+	</object>
+</objects>

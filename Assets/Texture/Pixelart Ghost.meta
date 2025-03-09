@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Texture/Pixelart Ghost.meta
 guid: cb4ba7116c26f3849abdd4084efeb33f
 folderAsset: yes
+========
+guid: d98b4a4ce067b404e80bec4a1e836dd9
+>>>>>>>> Mecanics:Assets/testterd.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

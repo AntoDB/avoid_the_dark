@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5ed35457-82b4-4e39-aa3a-23d657228580}">
+		<property name="assetPath">
+			<value>Avoid The Dark/Avoid REV D.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>260.46460416666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b73b899-1e9a-411e-9439-b3a0b6ebda57}</destination>
+		</relationship>
+	</object>
+</objects>
