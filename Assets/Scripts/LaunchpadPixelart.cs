@@ -720,15 +720,9 @@ public class LaunchpadPixelArtCreator : MonoBehaviour
 
     private IEnumerator CelebrateCompletion()
     {
-        // Sauvegarder l'état actuel de la grille
-        int[,] savedGrid = new int[8, 8];
-        for (int y = 0; y < 8; y++)
-        {
-            for (int x = 0; x < 8; x++)
-            {
-                savedGrid[x, y] = userGrid[x, y];
-            }
-        }
+        // Après la célébration, passer au mode éteint (0)
+        Debug.Log("Pixel art réussi! Retour au mode éteint.");
+        SetDisplayMode(0);
 
         // Animation de célébration : faire clignoter la grille en vert
         for (int i = 0; i < 3; i++)
@@ -743,14 +737,9 @@ public class LaunchpadPixelArtCreator : MonoBehaviour
             }
             yield return new WaitForSeconds(0.2f);
 
-            // Restaurer l'image originale
-            for (int y = 0; y < 8; y++)
-            {
-                for (int x = 0; x < 8; x++)
-                {
-                    SetPixel(x, y, savedGrid[x, y]);
-                }
-            }
+            // Clignotte
+            ClearGrid();
+            ClearUserGrid();
             yield return new WaitForSeconds(0.2f);
         }
     }
