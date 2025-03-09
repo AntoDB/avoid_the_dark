@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{413c1976-c562-4ab8-abe0-9f4b3079967f}">
+		<property name="name">
+			<value>Force 3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ac055132-c9b8-4a5f-b1a2-ab8f350308c4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d3557ee2-b147-4085-a033-76a4bcc1b30f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d3557ee2-b147-4085-a033-76a4bcc1b30f}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
