@@ -1,9 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
-/// Contrôleur de lumières très simple qui s'intègre avec le système MQTT existant
+/// Contrôleur de lumières avec minuterie qui s'intègre avec le système MQTT existant
 /// </summary>
-public class SimpleLightController : MonoBehaviour
+public class TimedLightController : MonoBehaviour
 {
     // Référence au client MQTT
     private DirectMQTTClient mqttClient;
@@ -13,8 +14,17 @@ public class SimpleLightController : MonoBehaviour
     [Tooltip("Toutes les lumières à contrôler")]
     public Light[] directionalLights;
 
-    // Index de la lumière actuelle
-    private int currentLightIndex = -1;
+    [Header("Timing")]
+    [Tooltip("Durée pendant laquelle une lumière reste allumée (en secondes)")]
+    public float lightDuration = 5.0f;
+
+    // Minuteries pour chaque bouton
+    private float button1Timer = 0f;
+    private float button2Timer = 0f;
+
+    // Lumières actuellement activées
+    private int button1LightIndex = -1;
+    private int button2LightIndex = -1;
 
     void Awake()
     {
@@ -24,7 +34,7 @@ public class SimpleLightController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("[LightCtrl] Starting SimpleLightController");
+        Debug.Log("[LightCtrl] Starting TimedLightController");
 
         // Récupérer le client MQTT (qui doit être déjà dans la scène)
         mqttClient = FindObjectOfType<DirectMQTTClient>();
@@ -43,6 +53,41 @@ public class SimpleLightController : MonoBehaviour
 
         // Vérifier les lumières
         CheckLights();
+    }
+
+    void Update()
+    {
+        // Gérer la minuterie pour le bouton 1
+        if (button1Timer > 0)
+        {
+            button1Timer -= Time.deltaTime;
+            if (button1Timer <= 0)
+            {
+                // Le temps est écoulé, éteindre la lumière
+                if (button1LightIndex >= 0 && button1LightIndex < directionalLights.Length && directionalLights[button1LightIndex] != null)
+                {
+                    directionalLights[button1LightIndex].enabled = false;
+                    Debug.Log($"[LightCtrl] Button 1 timer expired, turned off light {button1LightIndex}");
+                }
+                button1LightIndex = -1;
+            }
+        }
+
+        // Gérer la minuterie pour le bouton 2
+        if (button2Timer > 0)
+        {
+            button2Timer -= Time.deltaTime;
+            if (button2Timer <= 0)
+            {
+                // Le temps est écoulé, éteindre la lumière
+                if (button2LightIndex >= 0 && button2LightIndex < directionalLights.Length && directionalLights[button2LightIndex] != null)
+                {
+                    directionalLights[button2LightIndex].enabled = false;
+                    Debug.Log($"[LightCtrl] Button 2 timer expired, turned off light {button2LightIndex}");
+                }
+                button2LightIndex = -1;
+            }
+        }
     }
 
     /// <summary>
@@ -78,8 +123,17 @@ public class SimpleLightController : MonoBehaviour
     /// </summary>
     private void HandleButton1Pressed()
     {
-        Debug.Log("[LightCtrl] Button 1 event received - Cycling lights");
-        ActivateRandomLight();
+        Debug.Log("[LightCtrl] Button 1 event received");
+
+        // Vérifier si le bouton est déjà actif (minuterie en cours)
+        if (button1Timer > 0)
+        {
+            Debug.Log("[LightCtrl] Button 1 is blocked, ignoring press");
+            return; // Le bouton est bloqué
+        }
+
+        // Activer une nouvelle lumière pour le bouton 1
+        ActivateRandomLightForButton(1);
     }
 
     /// <summary>
@@ -87,14 +141,23 @@ public class SimpleLightController : MonoBehaviour
     /// </summary>
     private void HandleButton2Pressed()
     {
-        Debug.Log("[LightCtrl] Button 2 event received - Cycling lights");
-        ActivateRandomLight();
+        Debug.Log("[LightCtrl] Button 2 event received");
+
+        // Vérifier si le bouton est déjà actif (minuterie en cours)
+        if (button2Timer > 0)
+        {
+            Debug.Log("[LightCtrl] Button 2 is blocked, ignoring press");
+            return; // Le bouton est bloqué
+        }
+
+        // Activer une nouvelle lumière pour le bouton 2
+        ActivateRandomLightForButton(2);
     }
 
     /// <summary>
-    /// Active une lumière aléatoire
+    /// Active une lumière aléatoire pour un bouton spécifique
     /// </summary>
-    private void ActivateRandomLight()
+    private void ActivateRandomLightForButton(int buttonNumber)
     {
         if (directionalLights == null || directionalLights.Length == 0)
         {
@@ -102,31 +165,53 @@ public class SimpleLightController : MonoBehaviour
             return;
         }
 
-        // Éteindre toutes les lumières d'abord
-        TurnOffAllLights();
-
-        // Sélectionner une nouvelle lumière aléatoire
-        int newIndex;
-        int maxAttempts = 10; // Éviter une boucle infinie si toutes les lumières sont nulles
+        // Trouver une lumière qui n'est pas déjà activée par l'autre bouton
+        int otherLightIndex = (buttonNumber == 1) ? button2LightIndex : button1LightIndex;
+        int newLightIndex;
         int attempts = 0;
+        int maxAttempts = 10; // Éviter une boucle infinie
 
         do
         {
-            newIndex = Random.Range(0, directionalLights.Length);
+            newLightIndex = Random.Range(0, directionalLights.Length);
             attempts++;
-        } while (directionalLights[newIndex] == null && attempts < maxAttempts);
 
-        // Si on a trouvé une lumière valide
-        if (directionalLights[newIndex] != null)
-        {
-            currentLightIndex = newIndex;
-            directionalLights[currentLightIndex].enabled = true;
-            Debug.Log($"[LightCtrl] Activated light {currentLightIndex}: {directionalLights[currentLightIndex].name}");
+            // Si toutes les lumières sont nulles ou si une seule lumière est disponible et occupée
+            if (attempts >= maxAttempts)
+            {
+                Debug.LogWarning("[LightCtrl] Could not find available light after multiple attempts");
+                return;
+            }
         }
-        else
+        while (directionalLights[newLightIndex] == null || newLightIndex == otherLightIndex);
+
+        // Définir la nouvelle lumière active pour ce bouton
+        if (buttonNumber == 1)
         {
-            Debug.LogWarning("[LightCtrl] Could not find a valid light to activate!");
+            // Si le bouton 1 avait déjà une lumière active, l'éteindre
+            if (button1LightIndex >= 0 && button1LightIndex < directionalLights.Length && directionalLights[button1LightIndex] != null)
+            {
+                directionalLights[button1LightIndex].enabled = false;
+            }
+
+            button1LightIndex = newLightIndex;
+            button1Timer = lightDuration;
         }
+        else // bouton 2
+        {
+            // Si le bouton 2 avait déjà une lumière active, l'éteindre
+            if (button2LightIndex >= 0 && button2LightIndex < directionalLights.Length && directionalLights[button2LightIndex] != null)
+            {
+                directionalLights[button2LightIndex].enabled = false;
+            }
+
+            button2LightIndex = newLightIndex;
+            button2Timer = lightDuration;
+        }
+
+        // Allumer la nouvelle lumière
+        directionalLights[newLightIndex].enabled = true;
+        Debug.Log($"[LightCtrl] Button {buttonNumber} activated light {newLightIndex} for {lightDuration} seconds");
     }
 
     /// <summary>
