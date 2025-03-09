@@ -404,3 +404,131 @@ Received Import Request.
 Start importing Assets/Texture/Rabbit/Rabbit_low_Rabbit_Emission.png using Guid(70e73ec1dc566c549a82a0d54fce4d01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ab39b34a95ae879461d56d7a3ba6db8a') in 0.0182548 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
 
+========================================================================
+Received Import Request.
+  Time since last request: 583.497784 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e8029fdee3dee521f953a1f90d80cc26') in 0.8153453 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.099077 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0af3d37a47774616229cc15dd453055b') in 2.6756478 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 1826.773824 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '02d78cd607457ec6c90eb80277a52bbe') in 0.0909324 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.193857 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '291eb1f93bc953a6d4ac5bcd0446e72d') in 0.0660001 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 221.927612 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b0b7e7c8a1c3f2d8720a029661d86f4e') in 0.0735859 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.664793 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c02108a2d021bc2e707f19b556a0c711') in 0.0493138 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.401571 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '80f6b4671a04e661a8c606c72bc860dc') in 0.0839786 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 96.765734 seconds.
+  path: Assets/Meshes/Rabbit.fbx
+  artifactKey: Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Rabbit.fbx using Guid(49cd7cbdfcf9af943a383833aca3875d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd12a3923bf0be3ad37e9c16d47b08172') in 0.0615662 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 380.663894 seconds.
+  path: Assets/Animations/Ch19_nonPBR@Scary Clown Walk.fbx
+  artifactKey: Guid(ab3ecce05aa17184ba8f8e6309245138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Ch19_nonPBR@Scary Clown Walk.fbx using Guid(ab3ecce05aa17184ba8f8e6309245138) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e75a11dbcb4c05e88163b7ef68accf75') in 0.0153439 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 119
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.599277 seconds.
+  path: Assets/Animations/CharaBase_Cont.controller
+  artifactKey: Guid(b0cb96499a5e4ca4ebe84e44fd36698e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/CharaBase_Cont.controller using Guid(b0cb96499a5e4ca4ebe84e44fd36698e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d8373bf01ad8dcc7a092061b1b8835e') in 0.0121276 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.077411 seconds.
+  path: Assets/Animations/Rabbit@Scary Clown Walk.fbx
+  artifactKey: Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit@Scary Clown Walk.fbx using Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '800e49e7f8fa56c01d996184e56a4b2f') in 0.162392 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 75
+
+========================================================================
+Received Import Request.
+  Time since last request: 92.737368 seconds.
+  path: Assets/Animations/Rabbit@Scary Clown Walk_fast.fbx
+  artifactKey: Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit@Scary Clown Walk_fast.fbx using Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '12cdf2c94eacdeb5baced2a5832887dc') in 0.0607398 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 75
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.085179 seconds.
+  path: Assets/Animations/Rabbit_Scary_Walk_fast.fbx
+  artifactKey: Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit_Scary_Walk_fast.fbx using Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '16e7dc7affc2bb45d0ec2265a841098d') in 0.0613069 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 75
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.751256 seconds.
+  path: Assets/Animations/Rabbit@Scary Clown Walk (1).fbx
+  artifactKey: Guid(896ecc7537df9f043b0b29ffe19903f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit@Scary Clown Walk (1).fbx using Guid(896ecc7537df9f043b0b29ffe19903f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3e4c74fdb9d2c0e9e6b6c5cce47c7959') in 0.0074081 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 71
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.489118 seconds.
+  path: Assets/Animations/Rabbit_Scary_Walk.fbx
+  artifactKey: Guid(896ecc7537df9f043b0b29ffe19903f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit_Scary_Walk.fbx using Guid(896ecc7537df9f043b0b29ffe19903f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f2b570fe53ef7adad28c187c3be2338a') in 0.0036188 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 71
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.468755 seconds.
+  path: Assets/Animations/Rabbit_Scary_Walk_fast.fbx
+  artifactKey: Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Rabbit_Scary_Walk_fast.fbx using Guid(f87331b0e1e36594d82ebf81402470f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0671afc4669013cf1759604aa20ce1d') in 0.1364525 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 75
+
