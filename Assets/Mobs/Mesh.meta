@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Mobs/Mesh.meta
 guid: 60a728c348848b6448d17f139841d10a
-========
-guid: 5f393bd16d22bd24180b698334a08067
->>>>>>>> Mecanics:Assets/Character/Animation/Controller.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

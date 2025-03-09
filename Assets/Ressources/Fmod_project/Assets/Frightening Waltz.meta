@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Ressources/Fmod_project/Assets/Frightening Waltz.meta
 guid: fe885ae8a9c163d4dbb84de3fce33c1d
+========
+guid: 5f393bd16d22bd24180b698334a08067
+>>>>>>>> Mecanics:Assets/Character/Animation/Controller.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
