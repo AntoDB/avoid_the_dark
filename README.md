@@ -2,14 +2,24 @@
 Game during Brussels Game Jam 2025
 
 ## 1. Team
-
+Team Of 5 people :
+Git & Tech Manager : Antonin De Breuck [Website](https://antodb.be)
+Game Design & Programer : Joe 
+Sound Design : Loïs 
+Musician : Adam
+3D Artist : Shegan Tavares Das Neves | [Artstation](https://www.artstation.com/demsheg)
 ## 2. Core Concept
-
+Make a game were you remember your childhood
 ## 3. Virtual part
-
+Game Engine : Unity 6
+Versioner : Github
+3D Software : Blender
+Animation website : Mixamo
 ## 4. Physical integration
-### 4.1. Switches
+Launchpad => [here](https://novationmusic.com/products/launchpad-mini-mk3)
 
+### 4.1. Switches
+Esp 32 switch => [here](https://www.amazon.com.be/-/nl/Espressive-Development-Bluetooth-WROOM32-NodeMCU/dp/B07K68RQTS/ref=asc_df_B07K68RQTS/?tag=begogshpadd0d-21&linkCode=df0&hvadid=714430882267&hvpos=&hvnetw=g&hvrand=4144347134565506489&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9195606&hvtargid=pla-862519322535&psc=1&mcid=3907c0ab5c033b51848cae096e865b8c&gad_source=1)
 #### 4.1.1. MQTT Brocker
 For MQTT, we wanted Unity to be the brocker (server) but that's not possible, so we wanted to host the brocker on a computer and have Unity and the ESP32s with the switches connect to it.\
 Antonin, the dev for this part, had a computer with firewalls that were too powerful, so the end nodes couldn't connect to it. 
