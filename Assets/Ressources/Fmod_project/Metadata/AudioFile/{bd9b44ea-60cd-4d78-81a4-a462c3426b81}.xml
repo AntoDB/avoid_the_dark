@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bd9b44ea-60cd-4d78-81a4-a462c3426b81}">
+		<property name="assetPath">
+			<value>sfx_char_rabbit_footstepsCalm_concrete_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.36652083333333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b73b899-1e9a-411e-9439-b3a0b6ebda57}</destination>
+		</relationship>
+	</object>
+</objects>

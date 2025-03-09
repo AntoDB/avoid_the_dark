@@ -12,10 +12,28 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool isGrounded;
 
+    private int nbInSpot = 0;
+
+    private Mood mood;
+
+    private float mentalHealth = 1;
+
+    float MentalHealth
+    {
+        set
+        {
+            mentalHealth = value;
+            GameManager.instance.step = (FearStep)((mentalHealth / 0.2) + 1);
+
+        }
+        get { return mentalHealth; }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        mood = Mood.Nice;
     }
 
     private void Update()
@@ -25,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Vérifier si le personnage touche le sol
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -34,25 +51,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void movementAxis(float horizontalInput, float verticalInput)
     {
-        // Calcul du vecteur de mouvement
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         Speed = movement.magnitude;
 
-        // Rotation du personnage dans la direction du mouvement
         if (movement != Vector3.zero)
         {
-            // Calcul de la rotation souhaitée
             Quaternion targetRotation = Quaternion.LookRotation(movement);
-
-            // Option 1: Rotation instantanée
-            //transform.rotation = targetRotation;
-
-            // Option 2: Rotation progressive (plus fluide)
-            float rotationSpeed = 10f; // Ajustez cette valeur selon vos préférences
+            float rotationSpeed = 10f; 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
-        // Application du mouvement
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
 
@@ -64,4 +72,55 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void UpdateMentalHealth()
+    {
+        Mood localMood = Mood.None;
+        if (nbInSpot > 0)
+        {
+            localMood = Mood.Nice;
+            if(mentalHealth <= 0.98f)
+                MentalHealth += 0.02f;
+        }
+        else if(nbInSpot == 0)
+        {
+            localMood = Mood.Fear;
+            if(mentalHealth > 0)
+                MentalHealth -= 0.01f;
+        }
+        changeAnimationMood(localMood);
+    }
+
+    private void changeAnimationMood(Mood localMood)
+    {
+        if (!localMood.Equals(mood))
+        {
+            mood = localMood;
+            switch (localMood)
+            {
+                case Mood.Nice:
+                    animator.SetTrigger("Replay");
+                    break;
+                case Mood.Fear:
+                    animator.SetTrigger("Scared");
+                    break;
+            }
+        }
+    } 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Light") && other.GetComponent<Light>().intensity > 0)
+        {
+            nbInSpot++;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Light") && nbInSpot>0)
+        {
+            nbInSpot--;
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ Game during Brussels Game Jam 2025
 
 ## 4. Physical integration
 ### 4.1. Switches
+
 #### 4.1.1. MQTT Brocker
 For MQTT, we wanted Unity to be the brocker (server) but that's not possible, so we wanted to host the brocker on a computer and have Unity and the ESP32s with the switches connect to it.\
 Antonin, the dev for this part, had a computer with firewalls that were too powerful, so the end nodes couldn't connect to it. 
@@ -43,7 +44,20 @@ allow_anonymous true
 sudo systemctl restart mosquitto
 ```
 
-#### 4.1.1. MQTT ESP32-1 Client
+#### 4.1.2. MQTT ESP32-1 Client
 ESP32s are microcontrollers. They are mini programmable electronic cards. If you're familiar with Arduino Genuino, ESPs are the same thing, but more powerful and with a WIFI and Bluetooth chip.\
 We use them as physical integration with switches in real life.
 
+### 4.2. Launchpad
+#### 4.2.1. Get signal
+To use Launchpad, we use the Unity package: MidiJack.\
+You can download it from [GitHub](https://github.com/keijiro/MidiJack?tab=readme-ov-file).\
+Install it via the package manager (custom package).
+
+#### 4.2.2 Send signal
+To use the LEDs on the Launchpad, you need the RtMidi.core in the Unity project.\
+Use NuGetForUnity (available from the Asset Store)\
+Or download the library manually and import it
+
+Enable support for native plugins in the Unity player settings\
+    In `Edit` → `Project Settings` → `Player` → `Other Settings`, make sure that ‘Allow “unsafe” Code’ is enabled
