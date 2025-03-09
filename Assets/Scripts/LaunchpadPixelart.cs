@@ -1,20 +1,28 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using RtMidi.LowLevel;
 
-public class LaunchpadPixelArt : MonoBehaviour
+public class LaunchpadPixelArtCreator : MonoBehaviour
 {
-    // Référence au contrôleur Launchpad
+    // Paramètres MIDI
+    private MidiProbe _inProbe;
     private MidiProbe _outProbe;
+    private List<MidiInPort> _inPorts = new List<MidiInPort>();
     private List<MidiOutPort> _outPorts = new List<MidiOutPort>();
+    private MidiInPort _launchpadIn;
     private MidiOutPort _launchpadOut;
     [SerializeField] private string deviceNameContains = "Launchpad";
     private bool deviceConnected = false;
 
     // Mapping des touches du Launchpad MK2
-    private Dictionary<Vector2Int, int> padNotes = new Dictionary<Vector2Int, int>();
+    private Dictionary<int, Vector2Int> padPositions = new Dictionary<int, Vector2Int>();
+    private Dictionary<Vector2Int, int> positionToPad = new Dictionary<Vector2Int, int>();
 
-    // Définitions d'images pixel art préconfigurées
+    // Tableau des boutons de droite (Volume, Pan, Send A, etc.)
+    private int[] rightButtons = new int[] { 89, 79, 69, 59, 49, 39, 29, 19 };
+
+    // Images disponibles
     public enum PixelArtImage
     {
         Alien,
@@ -22,7 +30,7 @@ public class LaunchpadPixelArt : MonoBehaviour
     }
 
     [Header("Configuration")]
-    public PixelArtImage selectedImage = PixelArtImage.Alien;
+    public PixelArtImage targetImage = PixelArtImage.Alien;
 
     // Variable entière pour contrôler l'affichage
     [Header("Contrôle d'Affichage")]
@@ -30,7 +38,28 @@ public class LaunchpadPixelArt : MonoBehaviour
     [Range(0, 2)]
     public int displayMode = 0;
 
+    [Header("Animation")]
+    [SerializeField] private float blinkSpeed = 0.3f;
+
+    // Grille de création de l'utilisateur
+    private int[,] userGrid = new int[8, 8];
+
+    // Couleur sélectionnée actuellement
+    private int selectedColor = 0;
+    private int selectedColorIndex = 0;
+
+    // Couleurs disponibles selon l'image
+    private int[] alienColors = new int[] { 0, 3, 16, 17, 25, 29, 37 };
+    private int[] ghostColors = new int[] { 0, 3, 36, 41, 45 };
+
     private int previousDisplayMode = -1; // Pour détecter les changements
+
+    // Variables pour le clignotement
+    private bool isBlinking = false;
+    private Coroutine blinkCoroutine = null;
+
+    // Active/désactive la vérification automatique
+    private bool autoVerification = true;
 
     void Start()
     {
@@ -40,20 +69,21 @@ public class LaunchpadPixelArt : MonoBehaviour
         // Initialiser la connexion MIDI
         InitializeMIDI();
 
-        // Initialiser le mode d'affichage
-        previousDisplayMode = displayMode;
-        UpdateDisplay();
+        // Initialiser la grille utilisateur
+        ClearUserGrid();
+
+        // Afficher la palette de couleurs
+        DisplayColorPalette();
     }
 
     void Update()
     {
         // Vérifier si les ports ont changé
-        if (_outProbe != null && _outPorts.Count != _outProbe.PortCount)
+        if (_inProbe != null && _inPorts.Count != _inProbe.PortCount)
         {
             DisposePorts();
             ScanPorts();
 
-            // Réafficher l'image si on est reconnecté
             if (deviceConnected)
             {
                 UpdateDisplay();
@@ -66,10 +96,18 @@ public class LaunchpadPixelArt : MonoBehaviour
             previousDisplayMode = displayMode;
             UpdateDisplay();
         }
+
+        // Traiter les messages MIDI entrants
+        foreach (var port in _inPorts)
+        {
+            port?.ProcessMessages();
+        }
     }
 
     void OnDestroy()
     {
+        StopBlinking();
+        // Nettoyage des connexions MIDI
         CleanupMIDI();
     }
 
@@ -81,21 +119,52 @@ public class LaunchpadPixelArt : MonoBehaviour
             for (int x = 0; x < 8; x++)
             {
                 // Calculer la note MIDI (format standard du Launchpad MK2)
-                // En utilisant (7-y) au lieu de y, nous inversons l'axe Y
-                int noteNumber = 11 + x + ((7 - y) * 10);
-                padNotes[new Vector2Int(x, y)] = noteNumber;
+                int noteNumber = 11 + x + (y * 10);
+                padPositions.Add(noteNumber, new Vector2Int(x, 7 - y));
+                positionToPad.Add(new Vector2Int(x, 7 - y), noteNumber);
             }
         }
     }
 
     void InitializeMIDI()
     {
+        _inProbe = new MidiProbe(MidiProbe.Mode.In);
         _outProbe = new MidiProbe(MidiProbe.Mode.Out);
+
         ScanPorts();
     }
 
+    // Parcourir et ouvrir tous les ports disponibles
     void ScanPorts()
     {
+        // Recherche des ports d'entrée
+        for (int i = 0; i < _inProbe.PortCount; i++)
+        {
+            string portName = _inProbe.GetPortName(i);
+            Debug.Log("MIDI-in port found: " + portName);
+
+            if (portName.Contains(deviceNameContains))
+            {
+                Debug.Log("Launchpad trouvé en entrée: " + portName);
+
+                var port = new MidiInPort(i);
+
+                // Configuration des événements
+                port.OnNoteOn = HandleNoteOn;
+                port.OnNoteOff = HandleNoteOff;
+                port.OnControlChange = HandleControlChange;
+
+                _inPorts.Add(port);
+                _launchpadIn = port;
+
+                deviceConnected = true;
+            }
+            else
+            {
+                _inPorts.Add(null);
+            }
+        }
+
         // Recherche des ports de sortie
         for (int i = 0; i < _outProbe.PortCount; i++)
         {
@@ -107,6 +176,7 @@ public class LaunchpadPixelArt : MonoBehaviour
                 Debug.Log("Launchpad trouvé en sortie: " + portName);
 
                 var port = new MidiOutPort(i);
+
                 _outPorts.Add(port);
                 _launchpadOut = port;
 
@@ -119,13 +189,138 @@ public class LaunchpadPixelArt : MonoBehaviour
         }
     }
 
+    // Fermer et libérer tous les ports ouverts
     void DisposePorts()
     {
+        foreach (var p in _inPorts) p?.Dispose();
+        _inPorts.Clear();
+
         foreach (var p in _outPorts) p?.Dispose();
         _outPorts.Clear();
 
+        _launchpadIn = null;
         _launchpadOut = null;
         deviceConnected = false;
+    }
+
+    void HandleNoteOn(byte channel, byte note, byte velocity)
+    {
+        if (velocity == 0) return; // Ignorer les messages Note On avec vélocité 0 (équivalent à Note Off)
+
+        // Vérifier si c'est un bouton latéral (pour sélectionner une couleur)
+        bool isRightButton = false;
+        int buttonIndex = -1;
+
+        for (int i = 0; i < rightButtons.Length; i++)
+        {
+            if (note == rightButtons[i])
+            {
+                isRightButton = true;
+                buttonIndex = i;
+                break;
+            }
+        }
+
+        if (isRightButton)
+        {
+            // C'est un bouton latéral - sélectionner la couleur
+            int[] availableColors = targetImage == PixelArtImage.Alien ? alienColors : ghostColors;
+
+            if (buttonIndex < availableColors.Length)
+            {
+                // Arrêter l'ancien clignotement s'il existe
+                StopBlinking();
+
+                selectedColor = availableColors[buttonIndex];
+                selectedColorIndex = buttonIndex;
+                Debug.Log($"Couleur sélectionnée: {selectedColor}");
+
+                // Démarrer le clignotement pour le bouton sélectionné
+                StartBlinking(rightButtons[buttonIndex], selectedColor);
+            }
+        }
+        else if (padPositions.ContainsKey(note))
+        {
+            // C'est un bouton de la grille principale - appliquer la couleur sélectionnée
+            Vector2Int position = padPositions[note];
+
+            // Coordonnées inversées car padPositions utilise (7-y)
+            int gridX = position.x;
+            int gridY = position.y;
+
+            // Mettre à jour la grille utilisateur
+            userGrid[gridX, gridY] = selectedColor;
+
+            // Envoyer la couleur au Launchpad
+            _launchpadOut.SendNoteOn(channel, note, (byte)selectedColor);
+
+            Debug.Log($"Couleur {selectedColor} appliquée à la position ({gridX}, {gridY})");
+
+            // Vérification automatique après chaque changement
+            if (autoVerification)
+            {
+                CheckCompletionStatus();
+            }
+        }
+    }
+
+    void HandleNoteOff(byte channel, byte note)
+    {
+        // Nous n'avons pas besoin de faire quoi que ce soit ici pour notre application
+    }
+
+    void HandleControlChange(byte channel, byte number, byte value)
+    {
+        Debug.Log($"Contrôleur changé: {number} avec valeur {value}");
+        // Traiter les messages de contrôle si nécessaire
+    }
+
+    // Démarrer le clignotement d'un bouton
+    private void StartBlinking(int noteNumber, int color)
+    {
+        StopBlinking(); // S'assurer qu'aucun autre clignotement n'est en cours
+
+        isBlinking = true;
+        blinkCoroutine = StartCoroutine(BlinkButton(noteNumber, color));
+    }
+
+    // Arrêter le clignotement
+    private void StopBlinking()
+    {
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        isBlinking = false;
+
+        // Restaurer l'affichage normal de la palette
+        DisplayColorPalette();
+    }
+
+    // Coroutine pour faire clignoter un bouton
+    private IEnumerator BlinkButton(int noteNumber, int color)
+    {
+        int highIntensityColor = color;
+        int lowIntensityColor = 0; // Éteint
+
+        // Si c'est le noir (0), utiliser le blanc avec faible vélocité pour contraster
+        if (color == 0)
+        {
+            highIntensityColor = 1; // Blanc faible intensité (1 au lieu de 3)
+        }
+
+        while (isBlinking)
+        {
+            // Allumer le bouton (couleur originale)
+            _launchpadOut.SendNoteOn(0, noteNumber, (byte)highIntensityColor);
+            yield return new WaitForSeconds(blinkSpeed);
+
+            // Éteindre le bouton
+            _launchpadOut.SendNoteOn(0, noteNumber, (byte)lowIntensityColor);
+            yield return new WaitForSeconds(blinkSpeed);
+        }
     }
 
     void CleanupMIDI()
@@ -138,6 +333,8 @@ public class LaunchpadPixelArt : MonoBehaviour
 
         // Libérer les ressources MIDI
         DisposePorts();
+
+        _inProbe?.Dispose();
         _outProbe?.Dispose();
 
         Debug.Log("Connexions MIDI fermées");
@@ -149,17 +346,30 @@ public class LaunchpadPixelArt : MonoBehaviour
         if (!deviceConnected || _launchpadOut == null) return;
 
         // Éteindre la grille principale 8x8
-        foreach (var kvp in padNotes)
+        foreach (var kvp in padPositions)
         {
-            _launchpadOut.SendNoteOn(0, kvp.Value, 0); // 0 = OFF (éteint)
+            _launchpadOut.SendNoteOn(0, (byte)kvp.Key, 0); // 0 = OFF (éteint)
         }
 
         // Éteindre aussi les boutons de contrôle sur la droite
-        int[] rightButtons = new int[] { 89, 79, 69, 59, 49, 39, 29, 19 };
         foreach (int note in rightButtons)
         {
-            _launchpadOut.SendNoteOn(0, note, 0);
+            _launchpadOut.SendNoteOn(0, (byte)note, 0);
         }
+    }
+
+    // Réinitialiser la grille de l'utilisateur
+    public void ClearUserGrid()
+    {
+        for (int y = 0; y < 8; y++)
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                userGrid[x, y] = 0; // 0 = OFF (éteint)
+            }
+        }
+
+        DisplayUserGrid();
     }
 
     // Afficher un pixel avec une couleur spécifique
@@ -168,9 +378,10 @@ public class LaunchpadPixelArt : MonoBehaviour
         if (!deviceConnected || _launchpadOut == null) return;
 
         Vector2Int pos = new Vector2Int(x, y);
-        if (padNotes.ContainsKey(pos))
+        if (positionToPad.ContainsKey(pos))
         {
-            _launchpadOut.SendNoteOn(0, padNotes[pos], color);
+            int note = positionToPad[pos];
+            _launchpadOut.SendNoteOn(0, (byte)note, (byte)color);
         }
     }
 
@@ -179,82 +390,174 @@ public class LaunchpadPixelArt : MonoBehaviour
     {
         if (!deviceConnected || _launchpadOut == null) return;
 
-        // D'abord, tout effacer
-        ClearGrid();
+        // Arrêter tout clignotement en cours
+        StopBlinking();
+
+        // Réinitialiser la grille et la couleur sélectionnée
+        selectedColor = 0;
+        selectedColorIndex = 0;
 
         // Ensuite afficher selon le mode
         switch (displayMode)
         {
             case 0: // Éteint
-                // Ne rien faire, tout est déjà éteint
+                ClearGrid();
+                ClearUserGrid();
                 break;
             case 1: // Alien
-                selectedImage = PixelArtImage.Alien;
-                DisplaySelectedImage();
+                targetImage = PixelArtImage.Alien;
+                ClearUserGrid();
+                // Afficher seulement la palette de couleurs pour le dessin
+                DisplayColorPalette();
                 break;
             case 2: // Ghost
-                selectedImage = PixelArtImage.Ghost;
-                DisplaySelectedImage();
+                targetImage = PixelArtImage.Ghost;
+                ClearUserGrid();
+                // Afficher seulement la palette de couleurs pour le dessin
+                DisplayColorPalette();
                 break;
         }
     }
 
-    // Afficher l'image sélectionnée
-    public void DisplaySelectedImage()
+    // Afficher la grille utilisateur
+    public void DisplayUserGrid()
     {
         if (!deviceConnected || _launchpadOut == null) return;
 
-        // D'abord, effacer l'affichage
-        ClearGrid();
-
-        // Afficher l'image sélectionnée
-        int[,] imageData = GetImageData(selectedImage);
-
-        // Afficher l'image principale sur la grille 8x8
         for (int y = 0; y < 8; y++)
         {
             for (int x = 0; x < 8; x++)
             {
-                SetPixel(x, y, imageData[x, y]);
+                SetPixel(x, y, userGrid[x, y]);
             }
         }
-
-        // Afficher la palette de couleurs sur les boutons de droite
-        DisplayColorPalette();
     }
 
     // Afficher la palette de couleurs sur les boutons de droite
     private void DisplayColorPalette()
     {
-        // Ces notes MIDI correspondent aux boutons de droite (Volume, Pan, Send A, Send B, Stop, Mute, Solo, Record Arm)
-        // Sur le Launchpad MK2, ces boutons ont les notes MIDI: 89, 79, 69, 59, 49, 39, 29, 19
-        int[] rightButtons = new int[] { 89, 79, 69, 59, 49, 39, 29, 19 };
+        if (!deviceConnected || _launchpadOut == null) return;
 
-        if (selectedImage == PixelArtImage.Alien)
+        // Si le clignotement est actif, ne pas interrompre
+        if (isBlinking) return;
+
+        // D'abord, éteindre tous les boutons latéraux
+        foreach (int note in rightButtons)
         {
-            // Couleurs pour l'Alien: Off, Blanc, Vert lime clair, Vert lime vif, Vert lumineux, Vert foncé, Vert-bleu
-            int[] alienColors = new int[] { 0, 3, 16, 17, 25, 29, 37 };
-
-            // Afficher chaque couleur (on a 6 couleurs + le noir)
-            for (int i = 0; i < alienColors.Length && i < rightButtons.Length; i++)
-            {
-                _launchpadOut.SendNoteOn(0, rightButtons[i], alienColors[i]);
-            }
+            _launchpadOut.SendNoteOn(0, (byte)note, 0);
         }
-        else if (selectedImage == PixelArtImage.Ghost)
-        {
-            // Couleurs pour le Ghost: Off, Blanc, Cyan, Bleu clair, Bleu
-            int[] ghostColors = new int[] { 0, 3, 36, 41, 45 };
 
-            // Afficher chaque couleur (on a 4 couleurs + le noir)
-            for (int i = 0; i < ghostColors.Length && i < rightButtons.Length; i++)
-            {
-                _launchpadOut.SendNoteOn(0, rightButtons[i], ghostColors[i]);
-            }
+        // Ensuite, afficher les couleurs disponibles
+        int[] availableColors = targetImage == PixelArtImage.Alien ? alienColors : ghostColors;
+
+        for (int i = 0; i < availableColors.Length && i < rightButtons.Length; i++)
+        {
+            _launchpadOut.SendNoteOn(0, (byte)rightButtons[i], (byte)availableColors[i]);
         }
     }
 
-    // Récupérer les données de l'image sélectionnée
+    private IEnumerator ShowTargetImagePreview(float previewDuration)
+    {
+        // Récupérer les données de l'image cible
+        int[,] targetImageData = GetImageData(targetImage);
+
+        // Afficher l'image cible
+        for (int y = 0; y < 8; y++)
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                SetPixel(x, y, targetImageData[x, y]);
+            }
+        }
+
+        // Attendre la durée spécifiée
+        yield return new WaitForSeconds(previewDuration);
+
+        // Revenir à la grille vide
+        ClearUserGrid();
+        DisplayColorPalette();
+    }
+
+    // Fonction pour changer l'image cible
+    public void SetTargetImage(PixelArtImage image)
+    {
+        StopBlinking();
+        targetImage = image;
+        selectedColor = 0; // Réinitialiser la couleur sélectionnée
+        selectedColorIndex = 0;
+        DisplayColorPalette();
+    }
+
+    // Méthode pour vérifier la création avec l'image cible
+    public void VerifyPixelArt()
+    {
+        if (!deviceConnected || _launchpadOut == null) return;
+
+        int[,] targetImageData = GetImageData(targetImage);
+        bool isCorrect = true;
+
+        // Comparer pixel par pixel
+        for (int y = 0; y < 8; y++)
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                if (userGrid[x, y] != targetImageData[x, y])
+                {
+                    // Marquer en rouge les pixels incorrects
+                    SetPixel(x, y, 5); // 5 = rouge vif
+                    isCorrect = false;
+                }
+                else
+                {
+                    // Marquer en vert les pixels corrects
+                    SetPixel(x, y, 48); // 48 = vert vif
+                }
+            }
+        }
+
+        // Afficher un feedback global (clignotement de toute la grille en vert si correct)
+        if (isCorrect)
+        {
+            StartCoroutine(FlashEntireGrid(48, 3)); // Flash vert puis blanc pour célébrer
+            Debug.Log("Bravo! L'image est correcte!");
+        }
+        else
+        {
+            Debug.Log("Il y a des erreurs dans l'image. Les pixels incorrects sont en rouge.");
+        }
+    }
+
+    // Flash de la grille entière dans une couleur
+    private IEnumerator FlashEntireGrid(int color1, int color2)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            // Premier flash
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    SetPixel(x, y, color1);
+                }
+            }
+            yield return new WaitForSeconds(0.3f);
+
+            // Deuxième flash
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    SetPixel(x, y, color2);
+                }
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        // Retour à l'affichage normal
+        DisplayUserGrid();
+    }
+
+    // Récupérer les données de l'image cible
     private int[,] GetImageData(PixelArtImage image)
     {
         switch (image)
@@ -388,6 +691,74 @@ public class LaunchpadPixelArt : MonoBehaviour
         ghost[5, 7] = 45; // Bleu
 
         return ghost;
+    }
+    private void CheckCompletionStatus()
+    {
+        // Récupérer les données de l'image cible
+        int[,] targetImageData = GetImageData(targetImage);
+        bool isCorrect = true;
+
+        // Comparer pixel par pixel
+        for (int y = 0; y < 8 && isCorrect; y++)
+        {
+            for (int x = 0; x < 8 && isCorrect; x++)
+            {
+                if (userGrid[x, y] != targetImageData[x, y])
+                {
+                    isCorrect = false;
+                }
+            }
+        }
+
+        // Si tout correspond, afficher un message et célébrer
+        if (isCorrect)
+        {
+            Debug.Log("BRAVO! Vous avez parfaitement reproduit l'image " + targetImage.ToString() + "!");
+            StartCoroutine(CelebrateCompletion());
+        }
+    }
+
+    private IEnumerator CelebrateCompletion()
+    {
+        // Sauvegarder l'état actuel de la grille
+        int[,] savedGrid = new int[8, 8];
+        for (int y = 0; y < 8; y++)
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                savedGrid[x, y] = userGrid[x, y];
+            }
+        }
+
+        // Animation de célébration : faire clignoter la grille en vert
+        for (int i = 0; i < 3; i++)
+        {
+            // Colorer tout en vert
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    SetPixel(x, y, 21); // Vert vif
+                }
+            }
+            yield return new WaitForSeconds(0.2f);
+
+            // Restaurer l'image originale
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    SetPixel(x, y, savedGrid[x, y]);
+                }
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    public void SetAutoVerification(bool enabled)
+    {
+        autoVerification = enabled;
+        Debug.Log("Vérification automatique " + (enabled ? "activée" : "désactivée"));
     }
 
     // Gestion publique de l'affichage
