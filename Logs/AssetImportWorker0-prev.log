@@ -1,0 +1,350 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.41f1 (46e447368a18) revision 4645959'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'fr' Physical Memory: 16087 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/shega/Desktop/BxlGmJm/Unity/avoid_the_dark
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52272
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/shega/Desktop/BxlGmJm/Unity/avoid_the_dark
+C:/Users/shega/Desktop/BxlGmJm/Unity/avoid_the_dark
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [23376]  Target information:
+
+Player connection [23376]  * "[IP] 192.168.0.197 [Port] 0 [Flags] 2 [Guid] 471404462 [EditorId] 471404462 [Version] 1048832 [Id] WindowsEditor(7,PCPSheg) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23376] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23376] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 4.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.41f1 (46e447368a18)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/shega/Desktop/BxlGmJm/Unity/avoid_the_dark/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 Laptop GPU (ID=0x2820)
+    Vendor:   NVIDIA
+    VRAM:     7948 MB
+    Driver:   32.0.15.7260
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56460
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.006806 seconds.
+- Loaded All Assemblies, in  0.537 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.429 seconds
+Domain Reload Profiling: 965ms
+	BeginReloadAssembly (218ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (195ms)
+		LoadAssemblies (215ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (190ms)
+			TypeCache.Refresh (188ms)
+				TypeCache.ScanAssembly (172ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (430ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (377ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (74ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (173ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.934 seconds
+Refreshing native plugins compatible for Editor in 2.06 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.831 seconds
+Domain Reload Profiling: 1762ms
+	BeginReloadAssembly (184ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (654ms)
+		LoadAssemblies (497ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (270ms)
+			TypeCache.Refresh (200ms)
+				TypeCache.ScanAssembly (183ms)
+			BuildScriptInfoCaches (53ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (832ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (643ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (107ms)
+			ProcessInitializeOnLoadAttributes (414ms)
+			ProcessInitializeOnLoadMethodAttributes (100ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 199 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5939 unused Assets / (4.5 MB). Loaded Objects now: 6647.
+Memory consumption went from 167.4 MB to 162.9 MB.
+Total: 15.947000 ms (FindLiveObjects: 1.440500 ms CreateObjectMapping: 0.830300 ms MarkObjects: 9.624500 ms  DeleteObjects: 4.048900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1929176.886182 seconds.
+  path: Assets/Prefab/ClasroomWall_Prefab.prefab
+  artifactKey: Guid(8ab5ffcb8262f0a41b9b87daed4aba6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/ClasroomWall_Prefab.prefab using Guid(8ab5ffcb8262f0a41b9b87daed4aba6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2539e71565aa6b6faf101d67d51eca1f') in 0.777859 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 367
+
+========================================================================
+Received Import Request.
+  Time since last request: 87.791959 seconds.
+  path: Assets/Prefab/ClasroomWallL_Prefab.prefab
+  artifactKey: Guid(8ab5ffcb8262f0a41b9b87daed4aba6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/ClasroomWallL_Prefab.prefab using Guid(8ab5ffcb8262f0a41b9b87daed4aba6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f19c299ca198c9dfbfb69836166da13d') in 0.1151315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 407
+
+========================================================================
+Received Import Request.
+  Time since last request: 149.020387 seconds.
+  path: Assets/Prefab/ClasroomWallR_Prefab.prefab
+  artifactKey: Guid(44eeeb6f19d72cf4999c08a480dcd59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/ClasroomWallR_Prefab.prefab using Guid(44eeeb6f19d72cf4999c08a480dcd59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '60cf4b397c098e109c8756b1ba4dc005') in 0.1910361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 407
+
+========================================================================
+Received Import Request.
+  Time since last request: 2781.930484 seconds.
+  path: Assets/Meshes/BookSHelf.fbx
+  artifactKey: Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/BookSHelf.fbx using Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1dbc911cd65e3b2157a8169b08650d15') in 2.5046966 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1302
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.831216 seconds.
+  path: Assets/Meshes/BookSHelf.fbx
+  artifactKey: Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/BookSHelf.fbx using Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8cb52873e836abf2fb3cf7c829ccc36') in 2.6069829 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1302
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.205789 seconds.
+  path: Assets/Meshes/BookSHelf.fbx
+  artifactKey: Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/BookSHelf.fbx using Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0039e836166d8464b4e8f863a416bf1b') in 2.7411489 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1302
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.387767 seconds.
+  path: Assets/Meshes/BookSHelf.fbx
+  artifactKey: Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/BookSHelf.fbx using Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1caacb5ab92c4a3ed37097d2d0d554d4') in 2.12797 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1302
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.599281 seconds.
+  path: Assets/Meshes/BookSHelf.fbx
+  artifactKey: Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/BookSHelf.fbx using Guid(41fe0b0008df23b43b44e2eb491e58cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dfe9203cdde3209ac46612add75665d9') in 2.0039556 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1302
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.100803 seconds.
+  path: Assets/Prefab/BookSHelf.prefab
+  artifactKey: Guid(287e8ea787ff5a54d89750d29b3c80c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/BookSHelf.prefab using Guid(287e8ea787ff5a54d89750d29b3c80c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f3b1bbed4a2e4f30c090a331e885fff4') in 0.0724988 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2345
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.510475 seconds.
+  path: Assets/Prefab/BookShelf .prefab
+  artifactKey: Guid(952a4f1608d7e0c4ebfa867d754e1040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/BookShelf .prefab using Guid(952a4f1608d7e0c4ebfa867d754e1040) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dacb4fdc99dc16eeaba72907e1c6dd4b') in 0.11673 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2345
+
+========================================================================
+Received Import Request.
+  Time since last request: 269.251274 seconds.
+  path: Assets/Animations/CharaBase_Cont.controller
+  artifactKey: Guid(b0cb96499a5e4ca4ebe84e44fd36698e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/CharaBase_Cont.controller using Guid(b0cb96499a5e4ca4ebe84e44fd36698e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '499f98c353254b6630ccf625ad1cd2d6') in 0.0422527 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.629573 seconds.
+  path: Assets/Animations/Depressif_walk.bvh
+  artifactKey: Guid(05ce7f44cabeded41b8fbe78fa7f4795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Depressif_walk.bvh using Guid(05ce7f44cabeded41b8fbe78fa7f4795) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '88e76019776db112b5978e8745bce738') in 0.0024299 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 376.227606 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c8beaa22d0933b6d00450816107ec746') in 0.0921475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 442.899455 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7e7627e8e2ad2835a7d76a45cc9a032') in 0.0092307 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 159
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.443212 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba34c984ff73d76da1e505368296e753') in 0.006728 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 160
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.661825 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6aa5d959724c38c32056d38fd1cfaf39') in 0.0041496 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 160
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.711333 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '684b65ca569f9a945f0b5f447c3b2ca5') in 0.0064253 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 158
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.254104 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c1ce92a38bf513458aa9d134f479c1a') in 0.0048708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 160
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.275616 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd3159a3a0b22452867b892a8bb252aea') in 0.0066468 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 159
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.256565 seconds.
+  path: Assets/Animations/DepressifWalk.fbx
+  artifactKey: Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/DepressifWalk.fbx using Guid(e44f505a8df27a04780eb133f9e7e483) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4645be38eac7035ec37ee36c47439fc9') in 0.0120604 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 161
+
