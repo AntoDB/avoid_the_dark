@@ -119,6 +119,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &6225878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2110557206834806548, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_Name
+      value: Start Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.data[4].Name
+      value: Tension Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: Params.Array.data[0].Value
+      value: 0.432
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.926132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5981928
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.440773
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99821246
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.05976526
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
 --- !u!1001 &11443952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3529,6 +3598,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3601084922124127776, guid: acae6f33825f59b43bb28eef3e747653, type: 3}
   m_PrefabInstance: {fileID: 1376251493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1133836957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2110557206834806548, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+  m_PrefabInstance: {fileID: 6225878}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133836959}
+  - component: {fileID: 1133836958}
+  m_Layer: 0
+  m_Name: Start Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1133836958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3184739898642517341, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+  m_PrefabInstance: {fileID: 6225878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133836957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1998729792
+      Data2: 1247895421
+      Data3: 2074973318
+      Data4: -1521271802
+    Path: event:/Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: mentalHealth
+    Value: 0.432
+  - Name: Force 1
+    Value: 0
+  - Name: Force 2
+    Value: 0
+  - Name: Force 3
+    Value: 0
+  - Name: Tension Music
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1133836959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7315420625685741166, guid: b52fb714c78b5e24992220a35321ebf5, type: 3}
+  m_PrefabInstance: {fileID: 6225878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133836957}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.05976526, y: 0, z: -0, w: 0.99821246}
+  m_LocalPosition: {x: -0.926132, y: 0.5981928, z: 8.440773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185702126
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,3 +7583,4 @@ SceneRoots:
   - {fileID: 7996297244302028535}
   - {fileID: 7884507722364038394}
   - {fileID: 1468863401}
+  - {fileID: 6225878}
