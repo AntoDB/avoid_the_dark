@@ -1,12 +1,13 @@
 using UnityEngine;
 using FMODUnity;
 
-public class AudioManager : MonoBehaviour
+/*public class AudioManager : MonoBehaviour
 {
     [SerializeField] EventReference player_footsteps;
     //[SerializeField] EventReference;
     [SerializeField] float rate;
-    //[SerializeField FirstPersonController controller;
+    [SerializeField] private FirstPersonController controller;
+    [SerializeField] private GameObject player; // Ajout de la référence au joueur
 
     float time;
 
@@ -21,9 +22,10 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (controller.isWalking)
+        // Vérifier que controller n'est pas null avant d'accéder à ses propriétés
+        if (controller != null && controller.isWalking)
         {
+            time += Time.deltaTime;
             if (time >= rate)
             {
                 PlayFootstep();
@@ -32,3 +34,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 }
+*/
