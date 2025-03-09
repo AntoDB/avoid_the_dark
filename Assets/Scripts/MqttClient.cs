@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using System.Text;
@@ -35,6 +36,17 @@ public class DirectMQTTClient : MonoBehaviour
     private bool isConnected = false;
     private float reconnectTimer = 0f;
     private float reconnectInterval = 5f;
+
+    // File d'attente pour les messages MQTT
+    private Queue<MqttEvent> messageQueue = new Queue<MqttEvent>();
+    private object queueLock = new object();
+
+    // Structure pour stocker les infos des messages MQTT
+    private struct MqttEvent
+    {
+        public string Topic;
+        public string Message;
+    }
 
     void Start()
     {
@@ -114,31 +126,65 @@ public class DirectMQTTClient : MonoBehaviour
             string topic = e.Topic;
             string message = Encoding.UTF8.GetString(e.Message);
 
-            Log($"Message received: '{message}' from topic: {topic}");
-
-            // Stocker le message
-            lastMessageReceived = message;
-
-            // Traiter le message sur le thread principal (car cet événement est appelé sur un thread de la bibliothèque MQTT)
-            UnityMainThreadDispatcher.Instance().Enqueue(() => {
-                // Vérifier le contenu du message
-                if (message == "1")
-                {
-                    button1Pressed = true;
-                    Log("Button 1 pressed!");
-                    OnButton1Pressed?.Invoke();
-                }
-                else if (message == "2")
-                {
-                    button2Pressed = true;
-                    Log("Button 2 pressed!");
-                    OnButton2Pressed?.Invoke();
-                }
-            });
+            // Au lieu d'utiliser le dispatcher, on ajoute simplement le message à une file d'attente
+            lock (queueLock)
+            {
+                messageQueue.Enqueue(new MqttEvent { Topic = topic, Message = message });
+            }
         }
         catch (Exception ex)
         {
-            LogError($"Error processing MQTT message: {ex.Message}");
+            // On ne peut pas appeler LogError directement ici car on est sur un thread secondaire
+            // On garde la chaîne d'erreur pour la logger plus tard
+            string errorMessage = ex.Message;
+            lock (queueLock)
+            {
+                messageQueue.Enqueue(new MqttEvent { Topic = "ERROR", Message = errorMessage });
+            }
+        }
+    }
+
+    /// <summary>
+    /// Traite les messages MQTT en attente sur le thread principal
+    /// </summary>
+    private void ProcessMessageQueue()
+    {
+        // N'exécutez cette méthode que sur le thread principal (Update)
+        if (messageQueue.Count == 0) return;
+
+        MqttEvent[] events;
+        lock (queueLock)
+        {
+            events = messageQueue.ToArray();
+            messageQueue.Clear();
+        }
+
+        foreach (var mqttEvent in events)
+        {
+            if (mqttEvent.Topic == "ERROR")
+            {
+                LogError($"Error processing MQTT message: {mqttEvent.Message}");
+                continue;
+            }
+
+            Log($"Message received: '{mqttEvent.Message}' from topic: {mqttEvent.Topic}");
+
+            // Stocker le message
+            lastMessageReceived = mqttEvent.Message;
+
+            // Vérifier le contenu du message
+            if (mqttEvent.Message == "1")
+            {
+                button1Pressed = true;
+                Log("Button 1 pressed!");
+                OnButton1Pressed?.Invoke();
+            }
+            else if (mqttEvent.Message == "2")
+            {
+                button2Pressed = true;
+                Log("Button 2 pressed!");
+                OnButton2Pressed?.Invoke();
+            }
         }
     }
 
@@ -147,12 +193,19 @@ public class DirectMQTTClient : MonoBehaviour
     /// </summary>
     private void OnMqttConnectionClosed(object sender, EventArgs e)
     {
-        LogWarning("MQTT connection closed!");
+        // On ne peut pas appeler LogWarning directement, on passe par la file d'attente
+        lock (queueLock)
+        {
+            messageQueue.Enqueue(new MqttEvent { Topic = "CONNECTION_CLOSED", Message = "" });
+        }
         isConnected = false;
     }
 
     void Update()
     {
+        // Traiter les messages MQTT en attente
+        ProcessMessageQueue();
+
         // Vérifier la connexion et tenter de se reconnecter si nécessaire
         if (!isConnected)
         {
