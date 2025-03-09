@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{908559b7-4ff5-4aef-906a-1c69629d89ad}">
+		<property name="name">
+			<value>Tension Music</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ac055132-c9b8-4a5f-b1a2-ab8f350308c4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1730e4b8-d4ec-430c-b044-c768e42820a8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1730e4b8-d4ec-430c-b044-c768e42820a8}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
