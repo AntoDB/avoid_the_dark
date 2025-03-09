@@ -7,7 +7,7 @@ Git & Tech Manager : Antonin De Breuck [Website](https://antodb.be)\
 Game Design & Programer : Joe Nammour [mail](mailto:joeduliban79@gmail.com)\
 Sound Design : Loïs Lajarreti [itch.io](https://billy_hell.itch.io)\
 Musician : Adam Courtiol [linktree](https://linktr.ee/Terdix)\
-3D Artist : Shegan Tavares Das Neves | [Artstation](https://www.artstation.com/demsheg)\
+3D Artist : Shegan Tavares Das Neves | [Artstation](https://www.artstation.com/demsheg)
 ## 2. Core Concept
 Make a game were you remember your childhood (not always pleasant...)
 ## 3. Virtual part
