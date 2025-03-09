@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{977edb7b-7413-4e77-a8eb-1ea779acc37a}">
+		<property name="name">
+			<value>rabbit_movement</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ac055132-c9b8-4a5f-b1a2-ab8f350308c4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d3389ec1-cd2b-4da7-918b-f17da4a08f7c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d3389ec1-cd2b-4da7-918b-f17da4a08f7c}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>calmWalk</value>
+			<value>Walk</value>
+			<value>Run</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
