@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void changeAnimationMood(Mood localMood)
     {
-        if (!localMood.Equals(mood))
+        if (!localMood.Equals(mood) && !isBlocked)
         {
             mood = localMood;
             switch (localMood)

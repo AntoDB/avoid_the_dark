@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 642
+    y: 587
     width: 1182
     height: 212
   m_SerializedDataModeController:
@@ -458,21 +458,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 6cf30000
     m_LastClickedID: 62316
-    m_ExpandedIDs: 0000000068f300006af300006cf300006ef3000096f5000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000dcfc0000defc0000e0fc0000e2fc0000e4fc0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scenes
-      m_OriginalName: Scenes
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 62870
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 6}
@@ -487,7 +487,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000068f300006af300006cf300006ef30000
+    m_ExpandedIDs: 00000000dcfc0000defc0000e0fc0000e2fc0000e4fc0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -566,8 +566,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1183
-    y: 79
+    x: 1184
+    y: 24
     width: 416
     height: 775
   m_SerializedDataModeController:
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 315
     height: 537
   m_SerializedDataModeController:
@@ -632,24 +632,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 16}
-      m_SelectedIDs: eadef7ff
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: d2c6fcffd4c6fcffcad0fcff88d5fcff8ad5fcff9cd5fcff3cd6fcff74dafcff6adefcff6cdefcff04e3feff2aedfeff0a6dffff727affff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Directional Light (1)
-        m_OriginalName: Directional Light (1)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 209202
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 2}
@@ -681,8 +681,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 316
-    y: 79
+    x: 317
+    y: 24
     width: 865
     height: 537
   m_SerializedDataModeController:
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.11736781, y: 0.71568406, z: 0.12403255, w: 0.6772272}
     speed: 2
-    m_Value: {x: -0.117367834, y: 0.7156842, z: 0.12403257, w: 0.6772273}
+    m_Value: {x: -0.11736781, y: 0.71568406, z: 0.12403254, w: 0.67722714}
   m_Size:
     m_Target: 3.065517
     speed: 2
