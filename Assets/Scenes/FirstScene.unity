@@ -4513,6 +4513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1516590225251550532, guid: 02d391cbba6978b4ca2c5623429c586a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3174121173485583654, guid: 02d391cbba6978b4ca2c5623429c586a, type: 3}
       propertyPath: m_Name
       value: Lights-Simon
@@ -4553,6 +4557,10 @@ PrefabInstance:
       propertyPath: 'directionalLights.Array.data[8]'
       value: 
       objectReference: {fileID: 1541402209}
+    - target: {fileID: 8201235356866085473, guid: 02d391cbba6978b4ca2c5623429c586a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
