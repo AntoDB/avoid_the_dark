@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnPlayerJump;
     public UnityEvent<float, float> OnPlayerMove;
     public UnityEvent OnPlayerFear;
+    public UnityEvent<Vector3> OnMonsterListener;
 
     private void Start()
     {
@@ -38,5 +39,10 @@ public class GameManager : MonoBehaviour
         OnPlayerFear.Invoke();
         yield return new WaitForSeconds(1);
         StartCoroutine(updateMentalHealth());
+    }
+
+    public void monsterListener(Vector3 position)
+    {
+        OnMonsterListener.Invoke(position);
     }
 }

@@ -312,9 +312,19 @@ public class Dialogue3DText : MonoBehaviour
         if(currentDialogueIndex< dialogueTexts.Length)
             StartDialogue();
         else
+        {
             ClearPreviousCharacters();
+            StartCoroutine(destroyGameObject());
+        }
+
         //currentDialogueIndex = (currentDialogueIndex + 1) % dialogueTexts.Length;
         //StartDialogue();
+    }
+
+    IEnumerator destroyGameObject()
+    {
+        yield return new WaitForSeconds(characterLifetime);
+        Destroy(gameObject);
     }
 
     public void AddDialogue(string newDialogue)
