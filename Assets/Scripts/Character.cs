@@ -63,9 +63,31 @@ public class PlayerMovement : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(movement);
                 float rotationSpeed = 10f;
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            }
 
-            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+                Ray ray = new Ray(transform.position, movement.normalized);
+                RaycastHit hit;
+
+                float checkDistance = movement.magnitude * moveSpeed * Time.deltaTime;
+
+                if (Physics.Raycast(ray, out hit, checkDistance))
+                {
+                    if (hit.collider.CompareTag("Wall"))
+                    {
+                        // Option: glissement le long du mur
+                        //Vector3 wallNormal = hit.normal;
+                        //Vector3 slideDirection = Vector3.ProjectOnPlane(movement, wallNormal).normalized;
+                        //transform.Translate(slideDirection * moveSpeed * Time.deltaTime * 0.2f, Space.World);
+                    }
+                    else
+                    {
+                        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+                    }
+                }
+                else
+                {
+                    transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+                }
+            }
         }
     }
 
