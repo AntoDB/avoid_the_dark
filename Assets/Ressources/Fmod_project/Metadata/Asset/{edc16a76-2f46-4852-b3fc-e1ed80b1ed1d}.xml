@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{edc16a76-2f46-4852-b3fc-e1ed80b1ed1d}">
+		<property name="assetPath">
+			<value>Avoid The Dark/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b73b899-1e9a-411e-9439-b3a0b6ebda57}</destination>
+		</relationship>
+	</object>
+</objects>

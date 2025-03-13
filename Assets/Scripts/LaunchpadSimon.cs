@@ -55,11 +55,19 @@ public class LaunchpadSimon : MonoBehaviour
     // Mapping des touches pour les boutons latéraux
     private Dictionary<string, int> boutonsLateraux = new Dictionary<string, int>();
 
+    // Ajout d'une référence au Box Collider
+    [Header("Trigger Configuration")]
+    [SerializeField] private BoxCollider triggerCollider;
+
     void Start()
     {
+        // S'assurer que le jeu est désactivé au démarrage
+        jeuEnabled = false;
+        previousJeuEnabled = false;
+
         // Initialiser le mapping des boutons latéraux
         InitialiserBoutonsLateraux();
-        
+
         // Initialiser le mapping des touches
         InitializePadPositions();
 
@@ -69,15 +77,6 @@ public class LaunchpadSimon : MonoBehaviour
         // S'assurer que tout est éteint au démarrage
         Invoke("ResetAllLEDs", 0.2f);
         Invoke("ResetAllLEDs", 0.5f); // Double reset pour être sûr
-        
-        // Initialiser l'état précédent
-        previousJeuEnabled = jeuEnabled;
-        
-        // Si le jeu est activé, afficher le menu principal
-        if (jeuEnabled)
-        {
-            Invoke("AfficherMenuPrincipal", 1.0f);
-        }
     }
 
     // Initialiser les boutons latéraux
@@ -1019,6 +1018,61 @@ public class LaunchpadSimon : MonoBehaviour
             T value = list[k];
             list[k] = list[n];
             list[n] = value;
+        }
+    }
+
+    // Fonction appelée quand un autre collider entre dans notre trigger
+    void OnTriggerEnter(Collider other)
+    {
+        // Vérifier si c'est le joueur qui entre
+        if (other.CompareTag("Player"))
+        {
+            // Activer le jeu
+            jeuEnabled = true;
+
+            // Afficher le menu principal après un court délai
+            Invoke("AfficherMenuPrincipal", 0.5f);
+
+            Debug.Log("Joueur détecté - Jeu Simon activé!");
+
+            // Détruire l'objet après un délai pour permettre au jeu de s'initialiser
+            Invoke("DestroyTrigger", 0.6f);
+        }
+    }
+
+    // Fonction appelée quand un autre collider sort de notre trigger
+    /*void OnTriggerExit(Collider other)
+    {
+        // Vérifier si c'est le joueur qui sort
+        if (other.CompareTag("Player"))
+        {
+            // Désactiver le jeu
+            jeuEnabled = false;
+
+            // Arrêter le jeu proprement
+            ArreterJeu();
+
+            Debug.Log("Joueur sorti - Jeu Simon désactivé!");
+        }
+    }*/
+
+    // Méthode pour détruire uniquement le trigger et non le jeu entier
+    void DestroyTrigger()
+    {
+        // Si on veut détruire uniquement le collider trigger
+        if (triggerCollider != null)
+        {
+            Destroy(triggerCollider);
+        }
+        else
+        {
+            // Si on veut détruire l'objet entier qui contient le trigger
+            // Assurez-vous que ce n'est pas l'objet qui contient le script LaunchpadSimon
+            Transform triggerObject = transform.Find("TriggerObject");
+            if (triggerObject != null)
+            {
+                Destroy(triggerObject.gameObject);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using static CameraFollowWithAxisLock;
 
 public class TriggerDialogue : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class TriggerDialogue : MonoBehaviour
         {
             Transform cameraTransform = Camera.main.transform;
             CameraFollowWithAxisLock cam = Camera.main.GetComponent<CameraFollowWithAxisLock>();
-            GameObject go = Instantiate(boxDialogue, new Vector3(other.transform.position.x + (3 * (cam.followXAxis ? 1 : 0)), other.transform.position.y + 2, other.transform.position.z + (3 * (!cam.followXAxis ? 1 : 0))), Quaternion.identity);
+            GameObject go = Instantiate(boxDialogue, new Vector3(other.transform.position.x + (3 * (cam.currentViewMode.Equals(CameraViewMode.FollowXAxis) ? 1 : 0)), other.transform.position.y + 2, other.transform.position.z + (3 * (cam.currentViewMode.Equals(CameraViewMode.FollowZAxis) ? 1 : 0))), Quaternion.identity);
             go.transform.LookAt(transform.position + cameraTransform.rotation * Vector3.forward,
                          cameraTransform.rotation * Vector3.up);
             Dialogue3DText dialogue = go.GetComponent<Dialogue3DText>();
