@@ -1,38 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\",
+  "WorkspaceRootPath": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\nammour\\documents\\avoid_the_dark\\assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8A0A6770-C20B-F1E0-8DC1-FA96D05D0152}|FMODUnity.csproj|c:\\users\\justi\\documents\\avoid_the_dark\\assets\\plugins\\fmod\\src\\runtimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A0A6770-C20B-F1E0-8DC1-FA96D05D0152}|FMODUnity.csproj|solutionrelative:assets\\plugins\\fmod\\src\\runtimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Justi\\Documents\\avoid_the_dark\\Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|c:\\users\\justi\\documents\\avoid_the_dark\\assets\\scripts\\mqttclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mqttclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Justi\\Documents\\avoid_the_dark\\assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\triggerfloorislava.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerfloorislava.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Justi\\Documents\\avoid_the_dark\\assets\\scripts\\enhancedlightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enhancedlightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Justi\\Documents\\avoid_the_dark\\assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\triggerdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dialogue3dtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|C:\\Users\\Nammour\\Documents\\avoid_the_dark\\assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E3C095-8801-29BF-2A36-CE3C6C862CBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\squarespotlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,104 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Monster.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Monster.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Monster.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Monster.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Monster.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T10:52:17.635Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TriggerFloorIsLava.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerFloorIsLava.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerFloorIsLava.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerFloorIsLava.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TriggerFloorIsLava.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T10:42:10.866Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Dialogue3DText.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Dialogue3DText.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Dialogue3DText.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Dialogue3DText.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Dialogue3DText.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAIwDoBAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:36:20.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TriggerDialogue.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerDialogue.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TriggerDialogue.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB4AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T22:13:51.733Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Mood.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Mood.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Mood.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Mood.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Mood.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T21:36:35.23Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Character.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Character.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\Character.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Character.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAwGwAAAAeAAAAAAAAAA==",
+              "Title": "RuntimeUtils.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Plugins\\FMOD\\src\\RuntimeUtils.cs",
+              "RelativeDocumentMoniker": "Assets\\Plugins\\FMOD\\src\\RuntimeUtils.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Plugins\\FMOD\\src\\RuntimeUtils.cs",
+              "RelativeToolTip": "Assets\\Plugins\\FMOD\\src\\RuntimeUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0CAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:46:17.804Z",
+              "WhenOpened": "2025-03-15T16:03:57.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MqttClient.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\MqttClient.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MqttClient.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\MqttClient.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MqttClient.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAlwDkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:58:10.052Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAArAAAAAAAAAA==",
+              "Title": "AdditionalLightsShadowCasterPass.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@506b3deb0041\\Runtime\\Passes\\AdditionalLightsShadowCasterPass.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAtwLMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:39:32.959Z"
+              "WhenOpened": "2025-03-15T00:13:52.59Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SquareSpotLight.cs",
-              "DocumentMoniker": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SquareSpotLight.cs",
-              "ToolTip": "C:\\Users\\Nammour\\Documents\\avoid_the_dark\\Assets\\Scripts\\SquareSpotLight.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SquareSpotLight.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\Monster.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Monster.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\Monster.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Monster.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAtwGIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T14:32:22.762Z"
+              "WhenOpened": "2025-03-15T00:09:05.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TriggerDialogue.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TriggerDialogue.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\TriggerDialogue.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TriggerDialogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T23:44:49.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnhancedLightsManager.cs",
+              "DocumentMoniker": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\EnhancedLightsManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnhancedLightsManager.cs",
+              "ToolTip": "C:\\Users\\Justi\\Documents\\avoid_the_dark\\Assets\\Scripts\\EnhancedLightsManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnhancedLightsManager.cs",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAYwCcBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T23:42:29.977Z"
             }
           ]
         }

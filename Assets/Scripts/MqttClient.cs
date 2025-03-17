@@ -50,12 +50,12 @@ public class DirectMQTTClient : MonoBehaviour
 
     void Start()
     {
-        Log("Starting MQTT client...");
+        //Log("Starting MQTT client...");
 
         // Générer un ID client unique s'il n'est pas spécifié
         if (string.IsNullOrEmpty(clientId))
         {
-            clientId = "UnityClient_" + Guid.NewGuid().ToString().Substring(0, 8);
+            //clientId = "UnityClient_" + Guid.NewGuid().ToString().Substring(0, 8);
         }
 
         ConnectToMqttBroker();
@@ -68,7 +68,7 @@ public class DirectMQTTClient : MonoBehaviour
     {
         try
         {
-            Log($"Connecting to MQTT broker at {brokerAddress}:{brokerPort}...");
+            //Log($"Connecting to MQTT broker at {brokerAddress}:{brokerPort}...");
 
             // Créer le client MQTT
             mqttClient = new MqttClient(brokerAddress, brokerPort, false, null, null, MqttSslProtocols.None);
@@ -81,7 +81,7 @@ public class DirectMQTTClient : MonoBehaviour
 
             // Se connecter au broker
             string clientIdToUse = clientId + "_" + DateTime.Now.Ticks;
-            Log($"Using client ID: {clientIdToUse}");
+            //Log($"Using client ID: {clientIdToUse}");
 
             byte connectResult;
             if (!string.IsNullOrEmpty(mqttUsername) && !string.IsNullOrEmpty(mqttPassword))
@@ -98,11 +98,11 @@ public class DirectMQTTClient : MonoBehaviour
 
             if (isConnected)
             {
-                Log("Connected to MQTT broker successfully!");
+                //Log("Connected to MQTT broker successfully!");
 
                 // S'abonner au topic
                 mqttClient.Subscribe(new string[] { topicSubscribe }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE });
-                Log($"Subscribed to topic: {topicSubscribe}");
+                //Log($"Subscribed to topic: {topicSubscribe}");
             }
             else
             {
@@ -167,7 +167,7 @@ public class DirectMQTTClient : MonoBehaviour
                 continue;
             }
 
-            Log($"Message received: '{mqttEvent.Message}' from topic: {mqttEvent.Topic}");
+            //Log($"Message received: '{mqttEvent.Message}' from topic: {mqttEvent.Topic}");
 
             // Stocker le message
             lastMessageReceived = mqttEvent.Message;
@@ -176,13 +176,13 @@ public class DirectMQTTClient : MonoBehaviour
             if (mqttEvent.Message == "1")
             {
                 button1Pressed = true;
-                Log("Button 1 pressed!");
+                //Log("Button 1 pressed!");
                 OnButton1Pressed?.Invoke();
             }
             else if (mqttEvent.Message == "2")
             {
                 button2Pressed = true;
-                Log("Button 2 pressed!");
+                //Log("Button 2 pressed!");
                 OnButton2Pressed?.Invoke();
             }
         }
@@ -220,7 +220,7 @@ public class DirectMQTTClient : MonoBehaviour
         // Logs périodiques de statut si en mode verbeux
         if (verboseLogging && Time.frameCount % 300 == 0)
         {
-            Log($"Connection status: {(isConnected ? "Connected" : "Disconnected")}");
+            //Log($"Connection status: {(isConnected ? "Connected" : "Disconnected")}");
         }
     }
 
@@ -276,7 +276,7 @@ public class DirectMQTTClient : MonoBehaviour
             try
             {
                 mqttClient.Disconnect();
-                Log("Disconnected from MQTT broker");
+                //Log("Disconnected from MQTT broker");
             }
             catch (Exception e)
             {
@@ -300,14 +300,14 @@ public class DirectMQTTClient : MonoBehaviour
     {
         Disconnect();
     }
-
+    /*
     /// <summary>
     /// Méthodes de logging avec préfixe MQTT pour faciliter le filtrage
     /// </summary>
     private void Log(string message)
     {
         Debug.Log($"[MQTT] {message}");
-    }
+    }*/
 
     private void LogWarning(string message)
     {
