@@ -50,9 +50,12 @@ We use them as physical integration with switches in real life.
 
 ### 4.2. Launchpad
 #### 4.2.1. Get signal
-To use Launchpad, we use the Unity package: MidiJack.\
-You can download it from [GitHub](https://github.com/keijiro/MidiJack?tab=readme-ov-file).\
-Install it via the package manager (custom package).
+To use the colorized LEDs on the Launchpad, you need the RtMidi.core in the Unity project.\
+Use [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) (available from the Asset Store)\
+Or download the library manually and import it\
+-> Finally, we use [jp.keijiro.rtmidi](https://github.com/keijiro/jp.keijiro.rtmidi/tree/master?tab=readme-ov-file) to send colors on the Launchpad MK2.
+
+[Here the color table for the Launchpad MK2.](https://fael-downloads-prod.focusrite.com/customer/prod/s3fs-public/downloads/Launchpad%20MK2%20Programmers%20Reference%20Manual%20v1.03.pdf)
 
 #### 4.2.2 Send signal
 To use the LEDs on the Launchpad, you need the RtMidi.core in the Unity project.\

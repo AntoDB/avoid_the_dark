@@ -1,4 +1,5 @@
 using UnityEngine;
+using static CameraFollowWithAxisLock;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -98,12 +99,13 @@ public class PlayerMovement : MonoBehaviour
     public void DisableBlockGame()
     {
         isBlocked = false;
+        Camera.main.GetComponent<CameraFollowWithAxisLock>().currentViewMode = CameraViewMode.TopDown;
         animator.SetTrigger("Replay");
     }
 
     private void changeAnimationMood(Mood localMood)
     {
-        if (!localMood.Equals(mood))
+        if (!localMood.Equals(mood) && !isBlocked)
         {
             mood = localMood;
             switch (localMood)
