@@ -56,6 +56,7 @@ public class EnhancedLightsManager : MonoBehaviour
                 config.initialIntensity = config.targetLight.intensity;
                 // Éteindre toutes les lumières au départ
                 config.targetLight.intensity = 0;
+                Debug.LogWarning("Une lumière!");
             }
             else
             {
@@ -63,7 +64,6 @@ public class EnhancedLightsManager : MonoBehaviour
             }
         }
 
-        // Démarrer automatiquement si configuré
         if (autoStartOnAwake && lightSequence.Count > 0)
         {
             StartSequence();
@@ -355,23 +355,11 @@ public class EnhancedLightsManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Affiche l'état actuel de la séquence dans l'inspecteur (utile pour le débogage)
-    /// </summary>
-    void OnGUI()
+    private void OnTriggerEnter(Collider other)
     {
-        if (isSequenceActive)
+        if (other.CompareTag("Player") && lightSequence.Count > 0)
         {
-            string modeInfo = "Mode d'allumage: " + lightStartMode.ToString() +
-                              " | Mode d'extinction: " + lightEndMode.ToString();
-
-            GUI.Label(new Rect(10, 10, 400, 20), modeInfo);
-
-            if (currentLightIndex >= 0 && currentLightIndex < lightSequence.Count)
-            {
-                GUI.Label(new Rect(10, 30, 300, 20), "Lumière active: " + currentLightIndex +
-                    " (" + (lightSequence[currentLightIndex].targetLight ? lightSequence[currentLightIndex].targetLight.name : "null") + ")");
-            }
+            StartSequence();
         }
     }
 }

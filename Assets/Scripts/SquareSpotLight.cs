@@ -5,7 +5,6 @@ public class SquareSpotLight : MonoBehaviour
 {
     public Light spotLight;
     public Texture2D cookieTexture;
-    public float intensity = 1f;
     public Color lightColor = Color.white;
     public float range = 10f;
     public float angle = 30f;
@@ -50,7 +49,6 @@ public class SquareSpotLight : MonoBehaviour
 
         // Configurer comme spot
         spotLight.type = LightType.Spot;
-        spotLight.intensity = intensity;
         spotLight.color = lightColor;
         spotLight.range = range;
         spotLight.spotAngle = angle;

@@ -96,7 +96,7 @@ public class Monster : MonoBehaviour
         // Animation de déplacement (si un Animator est présent)
         if (animator != null)
         {
-            animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+            //animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
     }
 
